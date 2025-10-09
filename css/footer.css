@@ -13,7 +13,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
   margin-left: 50px;
 }
 
@@ -23,6 +23,10 @@
   align-items: center;
   gap: 60px;
   margin-right: 50px;
+}
+
+.wrapper-footer .footer-logo {
+  padding-top: 10px;
 }
 
 .wrapper-footer .footer-logo img {

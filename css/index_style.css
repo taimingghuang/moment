@@ -127,11 +127,11 @@ header a {
   justify-content: center;
   background-color: var(--color1);
 }
-.hero-pic1 {
-  margin-top: 0;
-  display: block;
+
+.hero-pic {
+  display: none;
   position: absolute;
-  z-index: 3;
+  z-index: 1;
   object-fit: cover;
   margin-left: 12px;
   width: 450px;
@@ -139,43 +139,8 @@ header a {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /*加陰影*/
 }
 
-.hero-pic2 {
+.hero-pic.-show {
   display: block;
-  position: absolute;
-  z-index: 3;
-  object-fit: cover;
-  margin-left: 12px;
-  margin-top: 80px;
-  width: 450px;
-  border-radius: 8px;
-  display: none;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-}
-
-.hero-pic3 {
-  display: block;
-  position: absolute;
-  z-index: 3;
-  object-fit: cover;
-  margin-left: 12px;
-  margin-top: 80px;
-  width: 450px;
-  border-radius: 8px;
-  display: none;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-}
-
-.hero-pic4 {
-  display: block;
-  position: absolute;
-  z-index: 3;
-  object-fit: cover;
-  margin-left: 12px;
-  margin-top: 80px;
-  width: 450px;
-  border-radius: 8px;
-  display: none;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .hero-container-l {
@@ -183,6 +148,7 @@ header a {
   height: 750px;
   margin-top: 50px;
   position: relative;
+  z-index: 3;
 }
 
 /*如果要改變img的寬高，外面要多包一層*/
@@ -314,7 +280,6 @@ header a {
 .wrapper-p3 {
   display: flex;
   position: relative;
-  height: 780px;
   justify-content: center;
   background-color: var(--color1);
 }
@@ -346,7 +311,7 @@ header a {
   display: flex;
   border-radius: 8px;
   overflow: hidden;
-  width: 1200px;
+  max-width: 1200px;
 }
 
 .wrapper-p3 li {
