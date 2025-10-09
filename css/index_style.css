@@ -1,0 +1,480 @@
+@import url(reset.css);
+
+body {
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: var(--color1);
+}
+
+:root {
+  --color1: #ffffff;
+  --color2: #1a1a1a;
+  --color3: #e63946;
+  --color4: #eeeeee;
+  --color5: #999999;
+  --color6: #fff8f0;
+  --color7: #faf3e0;
+}
+
+.wrapper {
+  /* max-width: 1200px; */
+  margin: 0 auto; /*置中*/
+  padding-top: 80px;
+}
+/*----------------------------Header-------------------------------*/
+
+header {
+  background-color: var(--color1);
+  position: fixed;
+  gap: 78px;
+  width: 100%;
+  top: 0;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+header .left-header,
+header .right-header {
+  display: flex;
+  /* gap: 55px; */
+  align-items: center;
+  width: 330px;
+}
+
+header .left-header li,
+header .right-header li {
+  border-bottom: 4px solid transparent;
+  transition: border-color 0.3s ease;
+  flex-grow: 1;
+}
+
+.header-logo {
+  height: 29px;
+  transition: all 0.3s ease, filter 0.05s linear;
+  filter: brightness(1);
+}
+
+.header-logo:hover {
+  filter: brightness(0) saturate(100%) invert(31%) sepia(76%) saturate(2613%)
+    hue-rotate(340deg) brightness(98%) contrast(88%);
+  transform: scale(1.1);
+}
+
+header .left-header li a:hover,
+header .right-header li a:hover {
+  color: var(--color3);
+  transform: scale(1.5);
+}
+
+.right-header {
+  margin-right: 30px;
+}
+
+header .left-header li:hover,
+header .right-header li:hover {
+  border-bottom: 4px solid var(--color3);
+}
+
+/*a的預設值會大於繼承，所以要寫在a裡面*/
+header a {
+  font-size: 1em;
+  font-weight: bold;
+  display: block;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--color2);
+  transition: all 0.3s ease;
+}
+
+.header-icon {
+  width: 20px;
+}
+
+.header-fixed {
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  display: flex;
+  padding-top: 20px;
+  padding-left: 30px;
+  gap: 16px;
+}
+
+/*----------------------------P1_Part-------------------------------*/
+
+.page1 {
+  height: 900px;
+}
+
+.page1 .aside-circle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.page1 .aside-circle img {
+  width: 16px;
+}
+
+.wrapper-p1 {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color1);
+}
+.hero-pic1 {
+  margin-top: 0;
+  display: block;
+  position: absolute;
+  z-index: 3;
+  object-fit: cover;
+  margin-left: 12px;
+  width: 450px;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /*加陰影*/
+}
+
+.hero-pic2 {
+  display: block;
+  position: absolute;
+  z-index: 3;
+  object-fit: cover;
+  margin-left: 12px;
+  margin-top: 80px;
+  width: 450px;
+  border-radius: 8px;
+  display: none;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-pic3 {
+  display: block;
+  position: absolute;
+  z-index: 3;
+  object-fit: cover;
+  margin-left: 12px;
+  margin-top: 80px;
+  width: 450px;
+  border-radius: 8px;
+  display: none;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-pic4 {
+  display: block;
+  position: absolute;
+  z-index: 3;
+  object-fit: cover;
+  margin-left: 12px;
+  margin-top: 80px;
+  width: 450px;
+  border-radius: 8px;
+  display: none;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-container-l {
+  width: 450px;
+  height: 750px;
+  margin-top: 50px;
+  position: relative;
+}
+
+/*如果要改變img的寬高，外面要多包一層*/
+.hero-container-r {
+  width: 100%;
+  max-width: 611px;
+  height: 605px;
+  margin-top: 90px;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /*加陰影*/
+}
+
+.hero-pic-r {
+  display: block;
+  position: absolute;
+  object-fit: cover;
+  z-index: 1;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+}
+
+.wrapper-p1 h1 {
+  z-index: 4;
+  width: 500px;
+  color: var(--color2);
+  font-family: "DM Sans", sans-serif;
+  font-weight: bold;
+  font-size: 4.5em;
+  position: absolute;
+  top: 108px;
+  left: 378px;
+  line-height: 80px;
+}
+
+.wrapper-p1 h1 .colorful {
+  color: var(--color3);
+}
+
+.wrapper-p1 .pr1 {
+  font-size: 1.25em;
+  position: absolute;
+  top: 286px;
+  left: 130px;
+  line-height: 32px;
+  font-weight: normal;
+}
+
+.wrapper-p1 .pr2 {
+  font-size: 1em;
+  position: absolute;
+  top: 410px;
+  left: 130px;
+  line-height: 24px;
+}
+
+.wrapper-p1 .herop1button {
+  width: 186px;
+  position: absolute;
+  top: 510px;
+  left: 130px;
+  z-index: 2;
+}
+
+/*----------------------------P2_Part-------------------------------*/
+.page2 {
+  height: 720px;
+}
+
+.wrapper-p2 {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color1);
+}
+
+.page2 .wrapper-p2 .p2-l {
+  width: 306px;
+  height: 291px;
+  margin: 202px 48px 0 40px;
+  position: relative;
+}
+
+.wrapper-p2 .p2-l h2 {
+  color: var(--color2);
+  font-weight: bold;
+  font-size: 3.5em;
+  line-height: 64px;
+  color: var(--color3);
+  margin-bottom: 40px;
+}
+
+.wrapper-p2 .p2-l p {
+  font-size: 1.25em;
+  line-height: 32px;
+  font-weight: normal;
+  margin-bottom: 40px;
+}
+
+.wrapper-p2 .p2-l .herop2button {
+  width: 186px;
+}
+
+.wrapper-p2 .p2-r {
+  width: 770px;
+  height: 480px;
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+  margin-top: 110px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.wrapper-p2 .p2-r .p2imgr {
+  position: absolute;
+  bottom: -120px;
+  left: 0;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+/*----------------------------P3_Part-------------------------------*/
+
+.page3 {
+  height: 780px;
+}
+
+.wrapper-p3 {
+  display: flex;
+  position: relative;
+  height: 780px;
+  justify-content: center;
+  background-color: var(--color1);
+}
+
+.wrapper-p3 h2 {
+  position: absolute;
+  top: 15px;
+  left: 50%; /* 從左邊50% 開始 */
+  transform: translateX(-50%); /* 往左移自己寬度的一半 */
+  font-weight: bold;
+  font-size: 3.5em;
+  line-height: 64px;
+  color: var(--color6);
+  text-shadow: 2px 2px 4px var(--color2), 4px 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.wrapper-p3 .herop3button {
+  width: 186px;
+  height: auto;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translatex(-50%);
+  z-index: 10;
+}
+
+.wrapper-p3 ul {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 1200px;
+}
+
+.wrapper-p3 li {
+  position: relative;
+  object-fit: cover;
+  transition: 0.5s;
+  flex: 1;
+  overflow: hidden;
+}
+
+.wrapper-p3 li:hover {
+  flex-grow: 3;
+}
+
+.wrapper-p3 img {
+  object-fit: cover;
+  width: 100%;
+  height: 780px;
+  display: block;
+}
+
+.wrapper-p3 .h3-1,
+.h3-2,
+.h3-3,
+.h3-4 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 5px;
+  font-weight: bold;
+  font-size: 2.5em;
+  line-height: 48px;
+  color: var(--color6);
+  text-shadow: 2px 2px 4px var(--color2), 4px 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.wrapper-p3 .p-1,
+.p-2,
+.p-3,
+.p-4 {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-51%);
+  left: 10px;
+  font-weight: bold;
+  font-size: 1em;
+  line-height: 100%;
+  color: var(--color6);
+  text-shadow: 2px 2px 4px var(--color2), 4px 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+/*----------------------------P4_Part-------------------------------*/
+.page4 {
+  height: 600px;
+  box-sizing: border-box;
+  position: relative;
+  background-color: var(--color1);
+}
+
+.wrapperp4 {
+  /* height: 600px; */
+  display: flex;
+  padding-top: 200px;
+  padding-bottom: 50px;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+  position: relative;
+}
+
+.wrapperp4 h3 {
+  font-size: 2.5em;
+  font-weight: bold;
+  line-height: 48px;
+  margin-bottom: 20px;
+  color: var(--color3);
+}
+
+.wrapperp4 p {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1em;
+  line-height: 24px;
+  font-weight: bold;
+  color: var(--color5);
+}
+
+.wrapperp4 h4 {
+  color: var(--color2);
+  font-weight: bold;
+  font-size: 1.5em;
+  line-height: 32px;
+  margin-bottom: 10px;
+}
+
+.wrapperp4 h5 {
+  color: var(--color2);
+  font-weight: bold;
+  font-size: 1em;
+  line-height: 24px;
+}
+
+.page4 .p5pic {
+  width: 450px;
+  position: absolute;
+  top: 90px;
+  left: 52%;
+  transform: translateX(-55%);
+  z-index: 2;
+}
+
+.page4 .p5pic img {
+  width: 450px;
+  object-fit: contain;
+  opacity: 0.4;
+}
+
+/*----------------------------Up button-------------------------------*/
+.up-button {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  position: fixed;
+  width: 40px;
+}
+
+.up-button a img {
+  width: 40px;
+}

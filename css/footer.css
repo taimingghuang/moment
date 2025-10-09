@@ -1,0 +1,52 @@
+/*----------------------------Footer-------------------------------*/
+.hero-footer {
+  background-color: var(--color4);
+}
+.wrapper-footer {
+  align-items: center;
+  height: 176px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper-footer .part-l {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-left: 50px;
+}
+
+.wrapper-footer .part-r {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin-right: 50px;
+}
+
+.wrapper-footer .footer-logo img {
+  width: 100px;
+}
+
+.wrapper-footer .footer-ig ul {
+  display: flex;
+  gap: 20px;
+}
+
+.wrapper-footer .footer-ig ul li img {
+  width: 46px;
+}
+
+.wrapper-footer .footer-ig ul li:last-child a img {
+  width: 56px;
+}
+
+.footer-information p {
+  color: var(--color2);
+}
+
+.footer-copyright p {
+  font-size: 1em;
+  color: var(--color5);
+}
