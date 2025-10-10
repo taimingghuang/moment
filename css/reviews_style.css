@@ -1,0 +1,290 @@
+@import url(./reset.css);
+
+body {
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: var(--color1);
+}
+
+:root {
+  --color1: #ffffff;
+  --color2: #1a1a1a;
+  --color3: #e63946;
+  --color4: #eeeeee;
+  --color5: #999999;
+  --color6: #fff8f0;
+  --color7: #faf3e0;
+}
+
+.reviews-wrapper {
+  /* max-width: 1200px; */
+  margin: 0 auto; /*置中*/
+  padding-top: 128px;
+}
+
+/* ------------------------------選單變色，每個分頁要調整的部分 ------------------------------*/
+header .right-header li:nth-child(2) a {
+  color: var(--color3);
+  transform: scale(1.5);
+}
+
+header .right-header:hover li:nth-child(2) a {
+  color: var(--color2);
+  transform: none;
+}
+
+header .right-header li:nth-child(2) a:hover {
+  color: var(--color3);
+  transform: scale(1.5);
+}
+
+/* 當 hover 右邊任何選單時，當前頁面也變回黑色 ⭐ 改用 :has() */
+header:has(.left-header:hover) .right-header li:nth-child(2) a {
+  color: var(--color2);
+  transform: none;
+}
+
+/* 當 hover 中間 logo 時，當前頁面也變回黑色 ⭐ 新增 */
+header:has(.hleft-logo:hover) .right-header li:nth-child(2) a {
+  color: var(--color2);
+  transform: none;
+}
+/* ------------------------------以上為選單變色，每個分頁要調整的部分 ------------------------------*/
+
+/*-------------------------------P1 Part----------------------------*/
+
+.reviews-p1 {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  margin-bottom: 60px;
+}
+
+.reviews-p1 .welcome ul li:hover {
+  transition: all 0.3s ease;
+  transform: scale(1.1);
+}
+
+.reviews-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+.reviews-top .reviews-top-inside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.reviews-top > h1 > span {
+  color: var(--color3);
+}
+
+.reviews-p1 .reviews-top h1 {
+  font-size: 4.5em;
+  font-weight: bold;
+  line-height: 72px;
+  color: var(--color2);
+}
+
+.reviews-top-inside p {
+  font-size: 1.25em;
+  color: var(--color5);
+  font-weight: normal;
+  line-height: 32px;
+}
+
+.welcome ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 把width都拿掉，grid的話就不需要*/
+.welcome ul li {
+  background-color: var(--color7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 36px 60px;
+  border-radius: 8px;
+}
+
+.welcome ul li img {
+  max-width: 40px;
+}
+
+.welcome-inside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.welcome-inside h2 {
+  font-weight: bold;
+  font-size: 3.5em;
+  line-height: 64px;
+  color: var(--color3);
+}
+
+.welcome-inside p {
+  font-weight: normal;
+  font-size: 1em;
+  line-height: 24px;
+  color: var(--color5);
+}
+/*-------------------------------P2 Part----------------------------*/
+
+.reviews-p2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+.reviews-section h3 {
+  font-weight: bold;
+  font-size: 1.5em;
+  line-height: 1.6;
+  background-color: var(--color7);
+  display: flex;
+  align-items: center;
+  padding: 30px 40px;
+  margin: 10px 0;
+}
+
+.reviews-section h3:nth-child(odd) {
+  border-radius: 0 99px 99px 0;
+  margin-right: 10px;
+}
+
+.reviews-section h3:nth-child(even) {
+  border-radius: 99px 0 0 99px;
+  margin-left: 10px;
+  justify-content: end;
+}
+
+.reviews-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(180px, auto);
+  max-width: 1200px;
+  width: 100%;
+  gap: 0;
+}
+
+.reviews-section .span1 {
+  background-image: url(../pics/103th/2.jpg);
+  background-position: 70%;
+  background-size: cover;
+  border-radius: 99px 0 0 99px;
+  margin: 10px 0 10px 10px;
+}
+
+.reviews-section .span2 {
+  background-image: url(../pics/100th/IMG_8050.jpg);
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  background-position: 70%;
+  background-size: cover;
+  border-radius: 0 99px 99px 0;
+  margin: 10px 10px 10px 0;
+}
+
+.reviews-section .span3 {
+  background-image: url(../pics/memoli/IMG_5091.JPG);
+  background-position: calc(120px);
+  background-size: cover;
+  border-radius: 99px 0 0 99px;
+  margin: 10px 0 10px 10px;
+}
+
+.reviews-section .span4 {
+  background-image: url(../pics/105th/1.JPG);
+  background-position: center;
+  background-size: cover;
+  border-radius: 0 99px 99px 0;
+  margin: 10px 10px 10px 0;
+}
+
+.reviews-section .span5 {
+  background-image: url(../pics/100th/IMG_7746\ 2.JPG);
+  background-position: center;
+  background-size: cover;
+  border-radius: 99px 0 0 99px;
+  margin: 10px 0 10px 10px;
+}
+
+.reviews-section .span6 {
+  background-image: url(../pics/103th/花藝1.jpg);
+  background-position: center;
+  background-size: cover;
+  border-radius: 0 99px 99px 0;
+  margin: 10px 10px 10px 0;
+}
+/*-------------------------------P3 Part----------------------------*/
+.reviews-p3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color7);
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 8px;
+  padding: 60px 40px;
+  margin-bottom: 50px;
+  gap: 20px;
+}
+
+.reviews-p3 .talkicon {
+  max-width: 40px;
+}
+
+.reviews-p3 h3 {
+  font-weight: bold;
+  font-size: 2.5em;
+  line-height: 3em;
+}
+
+.reviews-p3 p {
+  font-weight: normal;
+  font-size: 1.25em;
+  line-height: 2em;
+  color: var(--color5);
+}
+
+.reviews-p3 a .reviewsbutton {
+  max-width: 260px;
+  max-height: 78px;
+}
+
+.reviews-p3 a {
+  max-height: 78px;
+}
+
+/*----------------------------Up button-------------------------------*/
+.up-button {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  position: fixed;
+  width: 40px;
+}
+
+.up-button a img {
+  width: 40px;
+}

@@ -22,88 +22,6 @@ body {
   margin: 0 auto; /*置中*/
   padding-top: 80px;
 }
-/*----------------------------Header-------------------------------*/
-
-header {
-  background-color: var(--color1);
-  position: fixed;
-  gap: 78px;
-  width: 100%;
-  top: 0;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-header .left-header,
-header .right-header {
-  display: flex;
-  /* gap: 55px; */
-  align-items: center;
-  width: 330px;
-}
-
-.right-header {
-  margin-right: 30px;
-}
-
-header .left-header li,
-header .right-header li {
-  border-bottom: 4px solid transparent;
-  transition: border-color 0.3s ease;
-  flex-grow: 1;
-}
-
-.header-logo {
-  height: 29px;
-  transition: all 0.3s ease, filter 0.05s linear;
-  filter: brightness(1);
-}
-
-.header-logo:hover {
-  filter: brightness(0) saturate(100%) invert(31%) sepia(76%) saturate(2613%)
-    hue-rotate(340deg) brightness(98%) contrast(88%);
-  transform: scale(1.1);
-}
-
-header .left-header li a:hover,
-header .right-header li a:hover {
-  color: var(--color3);
-  transform: scale(1.5);
-}
-
-header .left-header li:hover,
-header .right-header li:hover {
-  border-bottom: 4px solid var(--color3);
-}
-
-/*a的預設值會大於繼承，所以要寫在a裡面*/
-header a {
-  font-size: 1em;
-  font-weight: bold;
-  display: block;
-  padding: 4px;
-  text-align: center;
-  text-decoration: none;
-  color: var(--color2);
-  transition: all 0.3s ease;
-}
-
-.header-icon {
-  width: 20px;
-}
-
-.header-fixed {
-  position: absolute;
-  right: 15px;
-  top: 5px;
-  display: flex;
-  padding-top: 20px;
-  padding-left: 30px;
-  gap: 16px;
-}
 
 /* ------------------------------選單變色，每個分頁要調整的部分 ------------------------------*/
 header .right-header li:nth-child(1) a {
@@ -155,6 +73,7 @@ header:has(.hleft-logo:hover) .right-header li:nth-child(1) a {
   font-size: 4.5em;
   line-height: 64px;
   margin-bottom: 10px;
+  color: var(--color3);
 }
 
 .portfolio-page1-l h5 {
