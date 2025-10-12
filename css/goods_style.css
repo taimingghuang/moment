@@ -1,7 +1,7 @@
 @import url(./reset.css);
 
 body {
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans", "Noto Sans TC", sans-serif;
   font-size: 16px;
   line-height: 1.6;
   background-color: var(--color1);
@@ -19,9 +19,11 @@ body {
 
 .goods-wrapper {
   width: 100%;
-  /* max-width: 1200px; */
   margin: 0 auto;
   padding-top: 0px;
+  display: flex;
+  flex-direction: column;
+  /* max-width: 1200px; */
 }
 
 /* ------------------------------選單變色，每個分頁要調整的部分 ------------------------------*/
@@ -58,6 +60,7 @@ header:has(.hleft-logo:hover) .right-header li:nth-child(3) a {
   width: 100%;
   height: 300px;
   overflow: hidden;
+  margin-bottom: 40px;
 }
 
 .top-banner img {
@@ -75,7 +78,7 @@ header:has(.hleft-logo:hover) .right-header li:nth-child(3) a {
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: auto;
   gap: 20px;
-  padding: 40px 20px;
+  padding: 0 20px 40px;
   justify-content: center;
   align-items: start;
 }
@@ -186,6 +189,136 @@ header:has(.hleft-logo:hover) .right-header li:nth-child(3) a {
   width: 100%;
   max-height: 35px;
   object-fit: contain;
+}
+
+/* ------------------------------Select-Box ------------------------------*/
+.select-container {
+  width: 240px;
+  max-width: 240px;
+  margin: 0 0 40px 40px;
+  align-self: center;
+  justify-self: end;
+  margin-right: 20px;
+}
+
+.select-container-container {
+  margin: 0 auto;
+  width: 1200px;
+}
+
+.select-container label:first-child {
+  display: block;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--color2);
+  margin-bottom: 20px;
+}
+
+.select-box {
+  position: relative;
+  width: 100%;
+}
+
+.select-toggle {
+  display: none;
+}
+
+/* 顯示區域 */
+.select-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px;
+  border: 2px solid var(--color4);
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.select-display:hover {
+  border-color: var(--color3);
+}
+
+.selected-text {
+  flex: 1;
+  font-size: 1.1em;
+  color: var(--color5);
+}
+
+.select-arrow-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.divider {
+  color: var(--color4);
+  font-size: 1.5em;
+}
+
+.arrow {
+  color: var(--color2);
+  font-size: 0.8em;
+  transition: transform 0.3s ease;
+  width: 24px;
+  height: 24px;
+}
+
+.arrow img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 展開時箭頭旋轉
+.select-toggle:checked + .select-display .arrow {
+  transform: rotate(180deg);
+} */
+
+.select-list {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 2px solid var(--color4);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.select-toggle:checked ~ .select-list {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+  transform: translateY(0);
+}
+
+.select-list li {
+  border-bottom: 1px solid var(--color4);
+}
+
+.select-list li:last-child {
+  border-bottom: none;
+}
+
+.select-list li a {
+  display: block;
+  padding: 12px 20px;
+  color: var(--color2);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.select-list li a:hover {
+  background-color: var(--color6);
 }
 
 /*----------------------------Up button-------------------------------*/
