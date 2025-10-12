@@ -1,0 +1,54 @@
+@import url(./reset.css);
+
+body {
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: var(--color1);
+}
+
+:root {
+  --color1: #ffffff;
+  --color2: #1a1a1a;
+  --color3: #e63946;
+  --color4: #eeeeee;
+  --color5: #999999;
+  --color6: #fff8f0;
+  --color7: #faf3e0;
+}
+
+.calender-wrapper {
+  width: 100%;
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  padding-top: 0px;
+}
+
+/* ------------------------------選單變色，每個分頁要調整的部分 ------------------------------*/
+/* header .right-header li:nth-child(3) a {
+  color: var(--color3);
+  transform: scale(1.5);
+} */
+
+header .right-header:hover li:nth-child(3) a {
+  color: var(--color2);
+  transform: none;
+}
+
+header .right-header li:nth-child(3) a:hover {
+  color: var(--color3);
+  transform: scale(1.5);
+}
+
+/* 當 hover 右邊任何選單時，當前頁面也變回黑色 ⭐ 改用 :has() */
+header:has(.left-header:hover) .right-header li:nth-child(3) a {
+  color: var(--color2);
+  transform: none;
+}
+
+/* 當 hover 中間 logo 時，當前頁面也變回黑色 ⭐ 新增 */
+header:has(.hleft-logo:hover) .right-header li:nth-child(3) a {
+  color: var(--color2);
+  transform: none;
+}
+/* ------------------------------以上為選單變色，每個分頁要調整的部分 ------------------------------*/
