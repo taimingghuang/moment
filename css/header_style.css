@@ -182,7 +182,7 @@ header a {
   gap: 12px;
   padding: 12px;
   margin-bottom: 12px;
-  background-color: var(--color6);
+  /* background-color: var(--color6); */
   border-radius: 8px;
   transition: background-color 0.3s ease;
 }
