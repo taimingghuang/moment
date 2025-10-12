@@ -52,3 +52,226 @@ header:has(.hleft-logo:hover) .right-header li:nth-child(3) a {
   transform: none;
 }
 /* ------------------------------以上為選單變色，每個分頁要調整的部分 ------------------------------*/
+
+h1 {
+  padding-top: 60px;
+  font-size: 3.5em;
+  line-height: 4em;
+  font-weight: bold;
+  color: var(--color2);
+  text-align: center;
+}
+
+main {
+  position: relative;
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../pics/103th/4.jpg);
+  background-position: center;
+  background-size: cover;
+  opacity: 0.75;
+  z-index: -1;
+}
+
+.calender-container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 50px;
+}
+
+.calender-container-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.select-container h4 {
+  font-size: 1.5em;
+  line-height: 32px;
+  font-weight: bold;
+  color: var(--color2);
+  text-align: start;
+}
+/* 
+.select-container a img {
+  display: block;
+  height: 40px;
+  width: 40px;
+  border: 1px solid red;
+}
+
+.select-container a p {
+  font-size: 2.5em;
+  line-height: 2.5em;
+  color: var(--color5);
+} */
+
+.select-container {
+  max-width: 400px;
+  margin: 0 0 40px 40px;
+}
+
+.select-container label:first-child {
+  display: block;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--color2);
+  margin-bottom: 20px;
+}
+
+.select-box {
+  position: relative;
+  width: 100%;
+}
+
+.select-toggle {
+  display: none;
+}
+
+/* 顯示區域 */
+.select-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  border: 2px solid var(--color4);
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.select-display:hover {
+  border-color: var(--color3);
+}
+
+.selected-text {
+  flex: 1;
+  font-size: 1.1em;
+  color: var(--color5);
+}
+
+.select-arrow-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.divider {
+  color: var(--color4);
+  font-size: 1.5em;
+}
+
+.arrow {
+  color: var(--color2);
+  font-size: 0.8em;
+  transition: transform 0.3s ease;
+}
+
+/* 展開時箭頭旋轉
+.select-toggle:checked + .select-display .arrow {
+  transform: rotate(180deg);
+} */
+
+.select-list {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 2px solid var(--color4);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.select-toggle:checked ~ .select-list {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+  transform: translateY(0);
+}
+
+.select-list li {
+  border-bottom: 1px solid var(--color4);
+}
+
+.select-list li:last-child {
+  border-bottom: none;
+}
+
+.select-list li a {
+  display: block;
+  padding: 12px 20px;
+  color: var(--color2);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.select-list li a:hover {
+  background-color: var(--color6);
+}
+
+/*-----------------------Right Part ------------------------*/
+
+.calender-container-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.calender-pic {
+  width: 500px;
+  height: 480px;
+}
+
+.calender-down {
+  background-color: var(--color7);
+  margin-left: 2px;
+  width: 490px;
+  height: 120px;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 80px;
+}
+.calender-down img {
+  width: 40px;
+  height: 40px;
+}
+
+.calender-down h4 {
+}
+
+.button-pic {
+  width: 186px;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.button-pic img {
+  display: block;
+  width: 100%;
+}
