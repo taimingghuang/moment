@@ -17,13 +17,14 @@ body {
   --color7: #faf3e0;
 }
 
-.goods-wrapper {
-  width: 100%;
-  margin: 0 auto;
-  padding-top: 0px;
-  display: flex;
-  flex-direction: column;
+.checkout-wrapper {
   /* max-width: 1200px; */
+  width: 100%;
+  margin: 0 auto; 置中
+  /* padding-top: 80 px; */
+}
+
+div {
 }
 /* ------------------------------選單變色，每個分頁要調整的部分 ------------------------------*/
 /* header .right-header li:nth-child(3) a {
