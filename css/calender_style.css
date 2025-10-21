@@ -47,7 +47,7 @@ header:has(.left-header:hover) .right-header li:nth-child(3) a {
 }
 
 /* 當 hover 中間 logo 時，當前頁面也變回黑色 ⭐ 新增 */
-header:has(.hleft-logo:hover) .right-header li:nth-child(3) a {
+header:has(.header-logo:hover) .right-header li:nth-child(3) a {
   color: var(--color2);
   transform: none;
 }
