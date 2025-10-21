@@ -24,29 +24,29 @@ body {
 }
 
 /* ------------------------------選單變色，每個分頁要調整的部分 ------------------------------*/
-header .right-header li:nth-child(1) a {
+header .left-header li:nth-child(3) a {
   color: var(--color3);
   transform: scale(1.5);
 }
 
-header .right-header:hover li:nth-child(1) a {
+header .left-header:hover li:nth-child(3) a {
   color: var(--color2);
   transform: none;
 }
 
-header .right-header li:nth-child(1) a:hover {
+header .left-header li:nth-child(3) a:hover {
   color: var(--color3);
   transform: scale(1.5);
 }
 
 /* 當 hover 右邊任何選單時，當前頁面也變回黑色 ⭐ 改用 :has() */
-header:has(.left-header:hover) .right-header li:nth-child(1) a {
+header:has(.right-header:hover) .left-header li:nth-child(3) a {
   color: var(--color2);
   transform: none;
 }
 
 /* 當 hover 中間 logo 時，當前頁面也變回黑色 ⭐ 新增 */
-header:has(.hleft-logo:hover) .right-header li:nth-child(1) a {
+header:has(.header-logo:hover) .left-header li:nth-child(3) a {
   color: var(--color2);
   transform: none;
 }
