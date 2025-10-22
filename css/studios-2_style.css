@@ -61,7 +61,7 @@ header:has(.header-logo:hover) .left-header li:nth-child(2) a {
   width: 600px;
   border-radius: 8px;
   margin: 0 5px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 3px 7px 0px rgb(192 192 192);
 }
 
 .left-big-pic1 {
@@ -243,9 +243,17 @@ header:has(.header-logo:hover) .left-header li:nth-child(2) a {
   border-radius: 8px;
 }
 
-.studios-2-right-part a img {
+section .herop2button {
   display: block;
-  width: 186px;
+  text-decoration: none;
+  color: var(--color1);
+  width: 176px;
+  height: 54px;
+  background-color: var(--color3);
+  border-radius: 8px;
+  text-align: center;
+  line-height: 54px;
+  font-size: 1.1em;
 }
 
 /* ========== add : 注意事項 swift pannel========== */
