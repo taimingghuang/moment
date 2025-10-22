@@ -181,16 +181,27 @@ header:has(.header-logo:hover) .left-header li:nth-child(2) a {
 }
 
 .studios-3-right-part h2 {
-  font-size: 3.5em;
+  font-size: 4em;
   color: var(--color3);
   font-weight: bold;
   line-height: 64px;
 }
 
-.studios-3-right-part .article-title a img,
 .studios-3-right-part .article-title a {
-  width: 50px;
-  height: 20px;
+  background-color: var(--color3);
+  color: var(--color1);
+  text-align: center;
+  border-radius: 999px;
+  line-height: 32px;
+  text-decoration: none;
+  width: 80px;
+  height: 32px;
+  font-size: 1em;
+  transition: transform 0.2s ease;
+}
+
+.studios-3-right-part .article-title a:hover {
+  transform: scale(1.1);
 }
 
 .studios-3-right-part .info-1 {
