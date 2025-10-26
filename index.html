@@ -17,163 +17,122 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
-      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    <script>
+      $(function () {
+        let divHeight = 750;
+        let imgCount = $('#content li').length;
+        
+        let index = 0;
+        let timer = setInterval(moveToNext, 5000);
+
+        $('.hero-dot').click(function(e) {
+          e.preventDefault();
+          clearInterval(timer);
+          
+          // <第幾個li>
+          index = $(this).parent().index();
+          
+          // move
+          $('#content').css({
+            transform: `translateY(${divHeight * index * -1}px)`
+          });
+          
+          // update dot
+          $('.hero-dot').removeClass('active');
+          $(this).addClass('active');
+          
+          // timer reset
+          timer = setInterval(moveToNext, 5000);
+        });
+
+        // move to next one
+        function moveToNext() {
+          if(index < imgCount - 1) {
+            index++;
+          } else {
+            index = 0;
+          }
+          
+          // move
+          $('#content').css({
+            transform: `translateY(${divHeight * index * -1}px)`
+          });
+          
+          // updat dot
+          $('.hero-dot').removeClass('active');
+          $('.hero-dot').eq(index).addClass('active');
+        }
+        
+        // init active
+        $('.hero-dot:first').addClass('active');
+    });
+    </script>
     <title>Hero</title>
   </head>
-  <!-- -----------------------------Header Part-------------------------- -->
 
   <body>
+    <header></header>
+
+
     <div class="wrapper">
-      <header>
-        <ul class="left-header">
-          <li><a href="./about.html">About</a></li>
-          <li><a href="./studios-1.html">Studios</a></li>
-          <li><a href="./portfolio.html">Portfolio</a></li>
-        </ul>
-        <div>
-          <a href="index.html"
-            ><img class="header-logo" src="./pics/header_logo.png" alt=""
-          /></a>
-        </div>
-        <ul class="right-header">
-          <li><a href="./reviews.html">Reviews</a></li>
-          <li><a href="./rules.html">Rules</a></li>
-          <li><a href="./goods.html">Goods</a></li>
-        </ul>
-        <div class="header-fixed">
-          <div class="cart-icon">
-            <a href="#"
-              ><img class="header-icon" src="./pics/cart.png" alt=""
-            /></a>
-            <!-- -----------------------------Cart Part-------------------------- -->
-            <div class="cart-panel-wrapper">
-              <div class="cart-panel">
-                <span class="cart-close-hint">移開滑鼠關閉視窗</span>
-                <h3>購物車 Your Cart</h3>
-                <div class="cart-items">
-                  <div class="cart-item">
-                    <img src="./pics/small_pics/goods/IMG_7853-min.JPG" alt="" />
-                    <div class="cart-item-info">
-                      <h4>輕小型自拍神器</h4>
-                      <div class="cart-item-details">
-                        <p>數量:1</p>
-                        <p>$699 NTD</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="cart-item">
-                    <img src="./pics/small_pics/goods/IMG_9518-min.JPG" alt="" />
-                    <div class="cart-item-info">
-                      <h4>慵懶感小背心</h4>
-                      <div class="cart-item-details">
-                        <p>數量:3</p>
-                        <p>$1,529 NTD</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="cart-item">
-                    <img src="./pics/small_pics/goods/IMG_7836-min.JPG" alt="" />
-                    <div class="cart-item-info">
-                      <h4>百搭可愛鞋款</h4>
-                      <div class="cart-item-details">
-                        <p>數量:1</p>
-                        <p>$799 NTD</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="cart-item">
-                    <img src="./pics/small_pics/goods/IMG_9517-min.JPG" alt="" />
-                    <div class="cart-item-info">
-                      <h4>秋季質感上衣</h4>
-                      <div class="cart-item-details">
-                        <p>數量:2</p>
-                        <p>$588 NTD</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="cart-item">
-                    <img src="./pics/small_pics/goods/IMG_9516-min.JPG" alt="" />
-                    <div class="cart-item-info">
-                      <h4>玫瑰造型小背心</h4>
-                      <div class="cart-item-details">
-                        <p>數量:3</p>
-                        <p>$1197 NTD</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="cart-total">
-                  <h4>總計</h4>
-                  <h4>4,430 NTD</h4>
-                </div>
-
-                <div class="cart-checkout">
-                  <a href="./checkout.html"
-                    ><img src="./pics/checkout_button.png" alt=""
-                  /></a>
-                </div>
-                
-                <a href="#"><img src="" alt="" /></a>
-              </div>
-            </div>
-          </div>
-          <!-- -----------------------------Cart Part-------------------------- -->
-
-          <a href="#"
-            ><img class="header-icon" src="./pics/user.png" alt=""
-          /></a>
-        </div>
-      </header>
-    </div>
       <!-- --------------------------------P1 Part-------------------------- -->
       <main class="page1">
         <div class="wrapper-p1">
           <aside class="aside-circle">
             <ul>
               <li>
-                <a href="#"><img src="./pics/Oval1.png" alt="circle1" /></a>
+                <a class="hero-dot active" data-hero="herophoto1"><img src="./pics/Oval333.png" alt="circle1" /></a>
               </li>
               <li>
-                <a href="#"><img src="./pics/Oval333.png" alt="circle2" /></a>
+                <a class="hero-dot" data-hero="herophoto2"><img src="./pics/Oval333.png" alt="circle2" /></a>
               </li>
               <li>
-                <a href="#"><img src="./pics/Oval333.png" alt="circle3" /></a>
+                <a class="hero-dot" data-hero="herophoto3"><img src="./pics/Oval333.png" alt="circle3" /></a>
               </li>
               <li>
-                <a href="#"><img src="./pics/Oval333.png" alt="circle4" /></a>
+                <a class="hero-dot" data-hero="herophoto4"><img src="./pics/Oval333.png" alt="circle4" /></a>
               </li>
             </ul>
           </aside>
 
-          <div class="hero-container-l">
-            <img
-              class="hero-pic hero-pic1 -show"
-              src="./pics/small_pics/100th/IMG_8051 2-min.JPG"
-              alt="default_100th"
-            />
-            <img
-              class="hero-pic hero-pic2"
-              src="./pics/small_pics/103th/1F(5)-min.jpg"
-              alt="default_103th"
-            />
-            <img
-              class="hero-pic hero-pic3"
-              src="./pics/small_pics/105th/3-min.JPG"
-              alt="default_105th"
-            />
-            <img
-              class="hero-pic hero-pic4"
-              src="./pics/small_pics/memoli/IMG_5077-min.JPG"
-              alt="default_memoli"
-            />
-            <h1>
+          <div class="hero-container-l" id="sliderBoard">
+            <ul id="content">
+              <li><img
+                id="herophoto1"
+                src="./pics/small_pics/100th/IMG_8051 2-min.JPG"
+                alt="default_100th"
+                />
+              </li>
+              <li>
+                <img
+                  id="herophoto2"
+                  src="./pics/small_pics/103th/1F(5)-min.jpg"
+                  alt="default_103th"
+                />                
+              </li>
+              <li>
+                <img
+                  id="herophoto3"
+                  src="./pics/small_pics/105th/3-min.JPG"
+                  alt="default_105th"
+                />                
+              </li>
+              <li>
+                <img
+                  id="herophoto4"
+                  src="./pics/small_pics/memoli/IMG_5077-min.JPG"
+                  alt="default_memoli"
+                />                
+              </li>
+            </ul>          
+          </div>
+          
+          <div class="hero-container-r">
+            <h1 class="hero-title">
               Beauty in <br />
               every <span class="colorful">moment.</span>
             </h1>
-          </div>
-
-          <div class="hero-container-r">
             <img class="hero-pic-r" src="./pics/small_pics/memoli/IMG_5085-min.JPG" alt="" />
             <p class="pr1">
               為美而生的攝影空間，在台北也能<br />遇見世界的格調。您留下的不只是<br />照片，而是永恆的回憶。
@@ -182,7 +141,7 @@
               Every shoot, every smile, every memory —<br />beautifully
               preserved here.
             </p>
-            <a class="herop1button" href="./studios-1.html">查看更多</a>
+            <a class="herop1button" href="./studios.html">查看更多</a>
           </div>
         </div>
       </main>
@@ -195,7 +154,7 @@
             <p class="pr1">
               為美而生的攝影空間，在台北也能<br />遇見世界的格調。您留下的不只是<br />照片，而是永恆的回憶。
             </p>
-            <a class="herop2button" href="./studios-1.html">查看更多</a>
+            <a class="herop2button" href="./about.html">查看更多</a>
           </section>
           <section class="p2-r">
             <img class="p2imgr" src="./pics/small_pics/memoli/IMG_5086-min.JPG" alt="p2pic" />
@@ -206,34 +165,34 @@
       <article class="page3">
         <div class="wrapper-p3">
           <h2>Studios</h2>
-          <a class="herop3button" href="./studios-1.html">查看更多</a>
+          <a class="herop3button" href="./studios.html">查看更多</a>
 
           <ul>
             <li>
               <h3 class="h3-1">100th</h3>
               <p class="p-1">Ximen</p>
-              <a href="./studios-1.html"
+              <a href="./studios.html"
                 ><img class="picp3-1" src="./pics/small_pics/100th/IMG_7272 2-min.JPG" alt=""
               /></a>
             </li>
             <li>
               <h3 class="h3-2">103th</h3>
               <p class="p-2">Yonghe</p>
-              <a href="./studios-2.html"
+              <a href="studios.html#studio2"
                 ><img class="picp3-2" src="./pics/small_pics/103th/1F(6)-min.jpg" alt=""
               /></a>
             </li>
             <li>
               <h3 class="h3-3">105th</h3>
               <p class="p-3">Sanchong</p>
-              <a href="./studios-3.html"
+              <a href="studios.html#studio3"
                 ><img class="picp3-3" src="./pics/small_pics/105th/hero-min.JPG" alt=""
               /></a>
             </li>
             <li>
               <h3 class="h3-4">Memoli</h3>
               <p class="p-4">Xinzhuang</p>
-              <a href="./studios-4.html"
+              <a href="studios.html#studio4"
                 ><img class="picp3-4" src="./pics/small_pics/memoli/IMG_5078-min.JPG" alt=""
               /></a>
             </li>
@@ -255,50 +214,24 @@
           <h5>thstudio436@gmail.com</h5>
         </div>
       </article>
-      <!-- ------------------------------Footer Part-------------------------- -->
-      <footer class="hero-footer">
-        <div class="wrapper-footer">
-          <div class="part-l">
-            <div class="footer-logo">
-              <a href="#"
-                ><img src="./pics/moment_logo.png" alt="footer.logo"
-              /></a>
-            </div>
-            <div class="footer-information">
-              <p>
-                營業時間｜全年無休 <br />
-                電話｜+886-912-910-912 <br />
-                信箱｜thstudio436@gmail.com <br />
-              </p>
-            </div>
-          </div>
-          <div class="part-r">
-            <div class="footer-ig">
-              <ul>
-                <li>
-                  <a href="#"><img src="./pics/frame100th.png" alt="" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="./pics/frame103th.png" alt="" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="./pics/frame105th.png" alt="" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="./pics/frameMemoli.png" alt="" /></a>
-                </li>
-              </ul>
-            </div>
-            <div class="footer-copyright">
-              <p>© Copyright 2025. MOMENT</p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <footer></footer>
       <!-- ---------------------------Up-button-------------------------- -->
       <div class="up-button">
         <a href="#"><img src="./pics/up button_red.png" alt="upbottom" /></a>
       </div>
     </div>
+      <!---------------------------- script ----------------------------------->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("./header.html")
+          .then((res) => res.text())
+          .then((data) => (document.querySelector("header").innerHTML = data));
+
+        fetch("./footer.html")
+          .then((res) => res.text())
+          .then((data) => (document.querySelector("footer").innerHTML = data));
+      });
+    </script>
+
   </body>
 </html>

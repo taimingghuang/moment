@@ -107,7 +107,7 @@ header:has(.header-logo:hover) .left-header li:nth-child(1) a {
   display: flex;
   border-radius: 8px;
   margin-right: 20px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 3px 7px 0px rgb(192 192 192);
   margin-top: 100px;
   animation: float-container 3s ease-in-out infinite;
 }
@@ -136,7 +136,7 @@ header:has(.header-logo:hover) .left-header li:nth-child(1) a {
   display: flex;
 
   border-radius: 8px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 3px 7px 0px rgb(192 192 192);
   animation: float-container 3s ease-in-out infinite;
   animation-delay: 0.5s;
 }
@@ -178,12 +178,32 @@ header:has(.header-logo:hover) .left-header li:nth-child(1) a {
   color: var(--color3);
 }
 
+.top-part ul {
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+}
+
+.top-part ul li {
+  height: 180px;
+}
+
+.top-part ul li:nth-child(2) {
+  padding: 100px 0 0 0;
+}
+
 .top-part img {
   display: block;
-  width: 592px;
+  width: 160px;
   /* height: 275px; */
   margin: 0 auto;
 }
+
+.top-part ul li img:hover {
+  transform: scale(1.6);
+  transition: transform 0.3s ease
+}
+
 
 .about-second-pic {
   width: 1000px;

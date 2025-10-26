@@ -1,5 +1,33 @@
 $(function () {
-  let currentTimer = null;
+
+  let startStudio = 'studio1';
+  let currentTimer = null; // 準備一個計時器var，之後用來控制輪播自動播放
+
+  setTimeout(function(){
+    const hash = window.location.hash;
+    if (hash) {
+      const target = hash.substring(1); // "studio2"
+      if ($(`#${target}`).length) {
+        startStudio = target;
+      // 立即切換
+        $('.studio-content').removeClass('active');
+        $('.dot').removeClass('active');
+        $(`#${startStudio}`).addClass('active');
+        $(`.dot[data-studio="${startStudio}"]`).addClass('active');
+        setupSlider(startStudio);
+
+        // 平滑滾動
+        $('html, body').animate({
+          scrollTop: $(`#${startStudio}`).offset().top - 100
+        }, 600);
+      }
+    } else {
+      // 預設第一頁
+      $(`#studio1`).addClass('active');
+      $(`.dot[data-studio="studio1"]`).addClass('active');
+      setupSlider('studio1');
+    }
+  }, 100);
 
   // 圓點切換功能
   $('.dot').click(function () {
@@ -10,23 +38,23 @@ $(function () {
       clearInterval(currentTimer);
     }
 
-    // 切換 active class
+    // 1. 更新所有頁面的 active
     $('.dot').removeClass('active');
-    $(this).addClass('active');
+    $(`.dot[data-studio="${targetStudio}"]`).addClass('active');
 
-    // 切換內容顯示
+    // 切換內容
     $('.studio-content').removeClass('active');
     $(`#${targetStudio}`).addClass('active');
 
     // 初始化該攝影棚的輪播
-    initSlider(targetStudio);
+    setupSlider(targetStudio);
   });
 
-  // 初始化第一個攝影棚
-  initSlider('studio1');
+  // // === 預設啟動 studio1 ===
+  // setupSlider('studio1');
 
   // 輪播初始化函數
-  function initSlider(studioId) {
+  function setupSlider(studioId) {
     let $studio = $(`#${studioId}`);
     let $sliderBoard = $studio.find('.sliderBoard');
     let $content = $studio.find('.content');
@@ -85,11 +113,86 @@ $(function () {
       moveTo(index);
     }
 
-    // 開始自動輪播
+    // start自動輪播
     if (currentTimer) clearInterval(currentTimer);
     currentTimer = setInterval(moveToNext, 5000);
   }
 });
+
+// ============ 注意事項彈窗功能 ============
+$(function(){
+  let wrapper = $(`.notice-panel-wrapper`)
+  let panel = $(`.notice-panel`)
+  let openButton = $(`.article-title a`)
+  let closeButton = $(`#closeButton`)
+
+  // open window
+  openButton.click(function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    openNotice();
+  });
+
+  // close window
+  // 1. 點外部
+  $(document).on('click', function(e){
+    if (wrapper.hasClass('show')){
+      if (!$(e.target).closest('.notice-panel').length) {
+          closeNotice();
+      }
+    }
+  })
+  // 2. 
+  closeButton.click(function(){
+    closeNotice();
+  });
+
+  // 3.
+  $(document).keydown(function (e) {
+    if (e.key === 'Escape' && wrapper.hasClass('show')) {
+      closeNotice();
+    }
+  });  
+
+  // === 開啟函數 ===
+  function openNotice() {
+    wrapper.addClass('show');
+    setTimeout(function() {
+      panel.css('transform', 'translateX(0)');
+    }, 10);
+  }
+  // === 關閉函數 ===
+  function closeNotice() {
+    panel.css('transform', 'translateX(100%)');
+    setTimeout(function(){
+      wrapper.removeClass('show');
+    }, 300);
+  }
+})
+
+
+
+// $(function() {
+//   // 點擊「注意事項」按鈕
+//   $('.article-title a').click(function(e) {
+//     e.preventDefault(); // 阻止預設的 # 跳轉
+//     $('.notice-panel-wrapper').addClass('show');
+//   });
+
+//   // 點擊彈窗外部區域關閉
+//   $('.notice-panel-wrapper').click(function(e) {
+//     if ($(e.target).is('.notice-panel-wrapper')) {
+//       $(this).removeClass('show');
+//     }
+//   });
+
+//   // 按 ESC 鍵關閉
+//   $(document).keydown(function(e) {
+//     if (e.key === 'Escape') {
+//       $('.notice-panel-wrapper').removeClass('show');
+//     }
+//   });
+// });
 
 
 // $(function () {
