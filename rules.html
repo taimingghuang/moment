@@ -26,111 +26,10 @@
 
     <title>Rules</title>
   </head>
-  <!-- -----------------------------Header Part-------------------------- -->
   <body>
-    <div class="rules-wrapper">
-      <header>
-        <ul class="left-header">
-          <li><a href="./about.html">About</a></li>
-          <li><a href="./studios.html">Studios</a></li>
-          <li><a href="./portfolio.html">Portfolio</a></li>
-        </ul>
-        <div>
-          <a href="index.html"
-            ><img class="header-logo" src="./pics/header_logo.png" alt=""
-          /></a>
-        </div>
-        <ul class="right-header">
-          <li><a href="./reviews.html">Reviews</a></li>
-          <li><a href="./rules.html">Rules</a></li>
-          <li><a href="./goods.html">Goods</a></li>
-        </ul>
-        <div class="header-fixed">
-          <div class="cart-icon">
-            <a href="#"
-              ><img class="header-icon" src="./pics/cart.png" alt=""
-            /></a>
-            <!-- -----------------------------Cart Part-------------------------- -->
-            <div class="cart-panel-wrapper">
-              <div class="cart-panel">
-                <span class="cart-close-hint">移開滑鼠關閉視窗</span>
-                <h3>購物車 Your Cart</h3>
-                <div class="cart-items">
-                  <div class="cart-item">
-                    <img src="./pics/IMG_7853.JPG" alt="" />
-                    <div class="cart-item-info">
-                      <h4>輕小型自拍神器</h4>
-                      <div class="cart-item-details">
-                        <p>數量:1</p>
-                        <p>$699 NTD</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="cart-item">
-                    <img src="./pics/IMG_9518.JPG" alt="" />
-                    <div class="cart-item-info">
-                      <h4>慵懶感小背心</h4>
-                      <div class="cart-item-details">
-                        <p>數量:3</p>
-                        <p>$1,529 NTD</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="cart-item">
-                    <img src="./pics/IMG_7836.JPG" alt="" />
-                    <div class="cart-item-info">
-                      <h4>百搭可愛鞋款</h4>
-                      <div class="cart-item-details">
-                        <p>數量:1</p>
-                        <p>$799 NTD</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="cart-item">
-                    <img src="./pics/IMG_9517.JPG" alt="" />
-                    <div class="cart-item-info">
-                      <h4>秋季質感上衣</h4>
-                      <div class="cart-item-details">
-                        <p>數量:2</p>
-                        <p>$588 NTD</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="cart-item">
-                    <img src="./pics/IMG_9516.JPG" alt="" />
-                    <div class="cart-item-info">
-                      <h4>玫瑰造型小背心</h4>
-                      <div class="cart-item-details">
-                        <p>數量:3</p>
-                        <p>$1197 NTD</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+    <header></header>
 
-                <div class="cart-total">
-                  <h4>總計</h4>
-                  <h4>4,430 NTD</h4>
-                </div>
-
-                <div class="cart-checkout">
-                  <a href="./checkout.html"
-                    ><img src="./pics/結帳按鈕.png" alt=""
-                  /></a>
-                </div>
-
-                <a href="#"><img src="" alt="" /></a>
-              </div>
-            </div>
-          </div>
-          <!-- -----------------------------Cart Part-------------------------- -->
-
-          <a href="#"
-            ><img class="header-icon" src="./pics/user.png" alt=""
-          /></a>
-        </div>
-      </header>
-    </div>
+    <div class="rules-wrapper"> 
 
     <!-- -----------------------------P1 Part-------------------------- -->
     <main class="rules-page-1">
@@ -384,57 +283,27 @@
         </article>
       </div>
       <div class="buttonorder-container">
-        <a class="buttonorder" href="./calender.html"
-          ><img
-            class="herop2button"
-            src="./pics/立即下訂button.png"
-            alt="立即下訂"
-        /></a>
+        <a class="herop2button" href="./calender.html">立即下訂</a>
       </div>
     </main>
-    <!-- ------------------------------Footer Part-------------------------- -->
-    <footer class="hero-footer">
-      <div class="wrapper-footer">
-        <div class="part-l">
-          <div class="footer-logo">
-            <a href="#"
-              ><img src="./pics/moment_logo.png" alt="footer.logo"
-            /></a>
-          </div>
-          <div class="footer-information">
-            <p>
-              營業時間｜全年無休 <br />
-              電話｜+886-912-910-912 <br />
-              信箱｜thstudio436@gmail.com <br />
-            </p>
-          </div>
-        </div>
-        <div class="part-r">
-          <div class="footer-ig">
-            <ul>
-              <li>
-                <a href="#"><img src="./pics/frame100th.png" alt="" /></a>
-              </li>
-              <li>
-                <a href="#"><img src="./pics/frame103th.png" alt="" /></a>
-              </li>
-              <li>
-                <a href="#"><img src="./pics/frame105th.png" alt="" /></a>
-              </li>
-              <li>
-                <a href="#"><img src="./pics/frameMemoli.png" alt="" /></a>
-              </li>
-            </ul>
-          </div>
-          <div class="footer-copyright">
-            <p>© Copyright 2025. MOMENT</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+
+    <footer></footer>
     <!-- ---------------------------Up-button-------------------------- -->
     <div class="up-button">
       <a href="#"><img src="./pics/up button_red.png" alt="upbottom" /></a>
     </div>
+  </div>
+  <!---------------------------- script ----------------------------------->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("./header.html")
+          .then((res) => res.text())
+          .then((data) => (document.querySelector("header").innerHTML = data));
+
+        fetch("./footer.html")
+          .then((res) => res.text())
+          .then((data) => (document.querySelector("footer").innerHTML = data));
+      });
+    </script>  
   </body>
 </html>

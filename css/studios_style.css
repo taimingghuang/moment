@@ -83,13 +83,11 @@ header .left-header li:nth-child(2) a:hover {
   transform: scale(1.5);
 }
 
-/* 當 hover 右邊任何選單時，當前頁面也變回黑色 ⭐ 改用 :has() */
 header:has(.right-header:hover) .left-header li:nth-child(2) a {
   color: var(--color2);
   transform: none;
 }
 
-/* 當 hover 中間 logo 時，當前頁面也變回黑色 ⭐ 新增 */
 header:has(.header-logo:hover) .left-header li:nth-child(2) a {
   color: var(--color2);
   transform: none;
@@ -119,9 +117,18 @@ header:has(.header-logo:hover) .left-header li:nth-child(2) a {
   transition: all 0.3s ease;
 }
 
-.dot:hover {
-  transform: scale(1.15);
+/* 當 hover 任一顆時，原本 active 的變灰（但不是被 hover 的那顆） */
+.dot-navigation:has(.dot:hover) .dot.active:not(:hover) {
+  background-color: var(--color8);
+  transform: scale(1);
 }
+
+.dot:hover {
+  transform: scale(1.2);
+  background-color: var(--color3);
+}
+
+
 
 .dot.active {
   background-color: var(--color3);

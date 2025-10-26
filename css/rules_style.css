@@ -95,6 +95,12 @@ header:has(.header-logo:hover) .right-header li:nth-child(2) a {
   margin-bottom: 5px;
 }
 
+.procedure ul li h3:hover{
+  transform: scale(1.4);
+  transition: transform 0.3s ease
+}
+
+
 /*----------------------------P2 Part-------------------------------*/
 
 .rules-page-2-wrapper {
@@ -343,6 +349,21 @@ main .buttonorder img {
 .rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(6) a:hover)
   .change {
   display: none;
+}
+
+.herop2button {
+  display: block;
+  text-decoration: none;
+  color: var(--color1);
+  width: 176px;
+  height: 54px;
+  background-color: var(--color3);
+  border-radius: 8px;
+  text-align: center;
+  line-height: 54px;
+  font-size: 1.1em;
+  margin: 0 auto;
+  margin-bottom: 60px;
 }
 
 /*----------------------------Up button-------------------------------*/
