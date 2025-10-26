@@ -187,52 +187,54 @@ header:has(.header-logo:hover) .right-header li:nth-child(1) a {
   gap: 0;
 }
 
+.reviews-section span {
+  display: block;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 99px;
+}
+
+.reviews-section span img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .reviews-section .span1 {
-  background-image: url(../pics/103th/2.jpg);
-  background-position: 70%;
-  background-size: cover;
+  grid-column: 2 / 3;
   border-radius: 99px 0 0 99px;
   margin: 10px 0 10px 10px;
 }
 
+.reviews-section .span1 img {
+  object-position: 70% 50%;
+}
+
 .reviews-section .span2 {
-  background-image: url(../pics/100th/IMG_8050.jpg);
   grid-column: 1 / 2;
   grid-row: 2 / 3;
-  background-position: 70%;
-  background-size: cover;
   border-radius: 0 99px 99px 0;
   margin: 10px 10px 10px 0;
 }
 
 .reviews-section .span3 {
-  background-image: url(../pics/memoli/IMG_5091.JPG);
-  background-position: calc(120px);
-  background-size: cover;
   border-radius: 99px 0 0 99px;
   margin: 10px 0 10px 10px;
 }
 
+
 .reviews-section .span4 {
-  background-image: url(../pics/105th/1.JPG);
-  background-position: center;
-  background-size: cover;
   border-radius: 0 99px 99px 0;
   margin: 10px 10px 10px 0;
 }
 
 .reviews-section .span5 {
-  background-image: url(../pics/100th/IMG_7746\ 2.JPG);
-  background-position: center;
-  background-size: cover;
   border-radius: 99px 0 0 99px;
   margin: 10px 0 10px 10px;
 }
 
 .reviews-section .span6 {
-  background-image: url(../pics/103th/花藝1.jpg);
-  background-position: center;
-  background-size: cover;
   border-radius: 0 99px 99px 0;
   margin: 10px 10px 10px 0;
 }
