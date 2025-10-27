@@ -113,7 +113,6 @@ $(function () {
       moveTo(index);
     }
 
-    // start自動輪播
     if (currentTimer) clearInterval(currentTimer);
     currentTimer = setInterval(moveToNext, 5000);
   }
