@@ -31,6 +31,7 @@ $(function () {
 
   // 圓點切換功能
   $('.dot').click(function () {
+
     let targetStudio = $(this).data('studio');
 
     // 清除舊的計時器
@@ -48,7 +49,11 @@ $(function () {
 
     // 初始化該攝影棚的輪播
     setupSlider(targetStudio);
+
+      
   });
+
+
 
   // // === 預設啟動 studio1 ===
   // setupSlider('studio1');

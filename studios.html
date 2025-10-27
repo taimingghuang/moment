@@ -22,20 +22,21 @@
     />
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
-    <!-- <script src="./js/jquery.lettering.js"></script>
+    <script src="./js/jquery.lettering.js"></script>
     <script src="./js/jquery.textillate.js"></script>
     <script>
         $(function () {
-            $('#theText').textillate({
-                loop: true,
-                minDisplayTime: 2000,
+            $('h2').textillate({
+                selector: 'h2',
+                loop: false,
+                minDisplayTime: 5000,  // 只要上面loop是false,就不會out, 無所謂
                 in: {
-                    effect: 'fadeInLeftBig',
-                    delayScale: 1.5,
+                    effect: 'flipInX',
+                    delayScale: 3.5,
                     delay: 100,
                     sync: false,
                     reverse: false,
-                    shuffle: true,
+                    shuffle: false,
                     callback: function () {}
                 },
                 out: {
@@ -49,7 +50,7 @@
                 },
             })
 		})
-    </script>	 -->
+    </script>	
     <script src="./js/studios.js"></script>
 
 
