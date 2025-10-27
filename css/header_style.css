@@ -1,16 +1,37 @@
+:root {
+  --color1: #ffffff;
+  --color2: #1a1a1a;
+  --color3: rgb(230, 55, 70);
+  --color4: #eeeeee;
+  --color5: #999999;
+  --color6: #fff8f0;
+  --color7: #faf3e0;
+}
+
 /*----------------------------Header-------------------------------*/
 
 header {
   background-color: var(--color1);
   position: fixed;
-  gap: 78px;
   width: 100%;
   top: 0;
   height: 80px;
+  gap: 78px;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+}
+
+.header-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 78px;
+  padding: 0 40px;
+  position: relative;
 }
 
 header .left-header,
@@ -21,8 +42,14 @@ header .right-header {
   width: 330px;
 }
 
+.left-header{
+  display: block;
+
+}
+
 .right-header {
   margin-right: 30px;
+  display: block;
 }
 
 header .left-header li,
@@ -73,13 +100,16 @@ header a {
 
 .header-fixed {
   position: absolute;
-  right: 15px;
+  right: 24px;
   top: 5px;
   display: flex;
-  padding-top: 20px;
-  padding-left: 30px;
   gap: 16px;
   align-items: center;
+}
+
+.cart-icon,
+.user-icon {
+  position: relative; 
 }
 
 /* ------------------------------add : 購物車 swift pannel------------------------------ */
@@ -111,6 +141,7 @@ header a {
   pointer-events: none;
   transition: all 0.3s ease;
   border: 2px solid var(--color4);
+  white-space: normal
 }
 
 /*hover*/
@@ -244,7 +275,7 @@ header a {
   padding: 16px 12px;
   background-color: var(--color7);
   border-radius: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .cart-total h4 {
@@ -256,12 +287,10 @@ header a {
 
 .cart-checkout {
   width: 160px;
-  height: 28px;
+  height: 54px;
   margin: 0 auto;
-}
-.cart-checkout img {
-  display: block;
-  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .cart-total h4:last-child {
@@ -287,3 +316,98 @@ header a {
 .cart-items::-webkit-scrollbar-thumb:hover {
   background: var(--color3);
 }
+
+.goToCheckOut {
+  display: block;
+  text-decoration: none;
+  color: var(--color1);
+  width: 120px;
+  height: 48px;
+  background-color: var(--color3);
+  border-radius: 8px;
+  text-align: center;
+  line-height: 48px;
+  font-size: 1.1em;
+  z-index: 2;
+}
+
+
+/*----------------------------Hamburger-------------------------------*/
+
+.transition{
+          transition: 1.5s;  
+        }
+
+.hamburgerWrapper{
+    width: 800px;
+    margin: 20px;
+    display: none;
+}
+
+.menu{
+    display: inline-block;
+    position: relative;
+    padding: 0 0 0 3px;
+    cursor: pointer;
+}
+
+.menu.active{
+    background-color: var(--color1);
+}
+
+.menu ul{
+    position: absolute;
+    left: auto;
+    right: 0;
+    top: 40px;
+    background-color: var(--color1);
+    width: 200px;
+    opacity: 0;
+    pointer-events: none; 
+    z-index: 998;
+    border-radius: 8px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.menu.active ul{
+    opacity: 1;
+    pointer-events: auto;
+    border: 2px solid rgba(230, 55, 70, 0.3);
+}
+
+ul li{
+    list-style: none;
+}
+
+.hamburgerWrapper ul li a {
+  height: 40px;
+  line-height: 40px;
+}
+
+.hamburgerWrapper ul li a h5 {
+  color: var(--color3);
+  font-size: 16px;
+  border-bottom: 2px solid rgba(230, 55, 70, 0.3);
+}
+
+.menu ul li:last-child a h5 {
+  border-bottom: none;
+}
+
+
+.bar{
+    width: 32px;
+    height: 6px;
+    background-color: var(--color3);
+    margin: 6px 0px;
+    border-radius: 3px;
+}
+
+.menu.active .bar1{transform: rotate(-45deg) translate(-9px, 7px);} /* x, y軸 */
+.menu.active .bar2{opacity: 0;}
+.menu.active .bar3{transform: rotate(45deg) translate(-9px, -8px);}
+
+
+
+
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/calendar_style.css" />
+    <link rel="stylesheet" href="./css/header_style.css" />
+    <link rel="stylesheet" href="./css/footer_style.css" />
+    <link rel="stylesheet" href="./css/rwd.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Noto+Sans+TC:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+
+    <title>Studios-3</title>
+  </head>
+
+  <body>
+    <header></header>
+
+
+    <div class="calendar-wrapper">
+
+<!-- ------------------------------Calendar Part-------------------------- -->
+    <main>
+      <h1>選擇日期時段</h1>
+      <div class="calendar-container">
+        <div class="select-container">
+          <label>想下訂哪間攝影棚？</label>
+          <div class="select-box">
+            <input type="checkbox" id="select-toggle" class="select-toggle" />
+            <label for="select-toggle" class="select-display">
+              <span class="selected-text">請選擇攝影棚</span>
+              <div class="select-arrow-wrapper">
+                <span class="divider">|</span>
+                <span class="arrow"
+                  ><img src="./pics/mingcute_down-line.png" alt=""
+                /></span>
+              </div>
+            </label>
+            <ul class="select-list">
+              <li><a href="#studioA">100th</a></li>
+              <li><a href="#studioB">103th</a></li>
+              <li><a href="#studioC">105th</a></li>
+              <li><a href="#studioD">Memoli</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="calendar-container-right">
+          <img class="calendar-pic" src="./pics/Frame 560.png" alt="" />
+          <div class="calendar-down">
+            <img src="./pics/time icon.png" alt="" />
+            <h4>請先選擇日期</h4>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="button-pic">
+      <a class="herop2button" href="./checkout.html">立即下訂</a>
+    </div>
+    <footer></footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+
+        fetch("./header.html")
+        .then((res) => res.text())
+        .then((data) => {
+            document.querySelector("header").innerHTML = data;
+            
+            $('.menu').click(function(){
+                $(this).toggleClass('active');
+                // console.log('Menu clicked! Active class toggled.');
+            });
+        });
+          
+        fetch("./footer.html")
+          .then((res) => res.text())
+          .then((data) => (document.querySelector("footer").innerHTML = data));
+      });
+    </script>
+  </body>
+</html>
