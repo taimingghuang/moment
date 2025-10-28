@@ -1,6 +1,7 @@
 
 /* ====================== Header  ======================*/
 
+
 @media (max-width: 1200px) {
   .header-container {
     gap: 60px;
@@ -11,7 +12,6 @@
     right: 30px;
   }
 }
-
 
 @media (max-width: 1100px) {
   .header-container {
