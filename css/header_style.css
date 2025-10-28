@@ -1,7 +1,7 @@
 :root {
   --color1: #ffffff;
   --color2: #1a1a1a;
-  --color3: rgb(230, 55, 70);
+  --color3: #e63746;
   --color4: #eeeeee;
   --color5: #999999;
   --color6: #fff8f0;
@@ -130,9 +130,14 @@ header a {
   position: absolute;
   top: 40px;
   right: -15px;
-  min-width: 360px;
-  pointer-events: none;
+  /* width: 350px;
+  max-width: 90vw; */
+  display: none;
   z-index: 2000;
+}
+
+.cart-panel-wrapper.active {
+  display: block; 
 }
 
 .cart-panel {
@@ -145,11 +150,13 @@ header a {
   pointer-events: none;
   transition: all 0.3s ease;
   border: 2px solid var(--color4);
-  white-space: normal
+  white-space: normal;
+  width: 350px;
+  max-width: 90vw;
 }
 
 /*hover*/
-.cart-icon:hover .cart-panel {
+/* .cart-icon:hover .cart-panel {
   transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
@@ -159,14 +166,12 @@ header a {
   transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
-}
+} */
 
-.cart-close-hint {
-  display: block;
-  text-align: right;
-  color: var(--color5);
-  font-size: 0.75em;
-  margin-bottom: 8px;
+.cart-panel-wrapper.active .cart-panel {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .cart-panel::before {
@@ -291,10 +296,11 @@ header a {
 
 .cart-checkout {
   width: 160px;
-  height: 54px;
+  height: 48px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .cart-total h4:last-child {
@@ -326,13 +332,34 @@ header a {
   text-decoration: none;
   color: var(--color1);
   width: 120px;
-  height: 48px;
   background-color: var(--color3);
   border-radius: 8px;
   text-align: center;
   line-height: 48px;
   font-size: 1.1em;
   z-index: 2;
+}
+
+.cart-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-close-btn:hover {
+  transform: scale(1.1) rotate(90deg);
+}
+
+.cart-close-btn svg {
+  display: block;
 }
 
 
@@ -359,39 +386,83 @@ header a {
     background-color: var(--color1);
 }
 
+.menu ul::after{
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-bottom: 9px solid var(--color1);
+}
+
+
 .menu ul{
     position: absolute;
     left: auto;
-    right: 0;
-    top: 40px;
+    top: 80px;
+    right: 20px;
     background-color: var(--color1);
-    width: 240px;
+    width: 300px;
+    max-width: 85vw;
     opacity: 0;
     pointer-events: none; 
     z-index: 998;
-    border-radius: 8px;
+    border-radius: 12px;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.menu.active ul {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .menu.active ul{
     opacity: 1;
     pointer-events: auto;
-    outline: 2px solid rgba(230, 55, 70, 0.3);
+    /* outline: 2px solid rgba(230, 55, 70, 0.3); */
 }
 
-ul li{
+.menu ul li:active:has(h5){
+  background-color: var(--color3);
+  border-radius: 12px;
+}
+
+.menu ul li:active:has(h5) h5{
+  color: var(--color1);
+  transition: all 0.3s ease ;
+  scale: 1.1;
+}
+
+.hamburgerWrapper ul li,
+.menu ul li {
     list-style: none;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color4);
+}
+
+.menu ul li:last-child {
+  border-bottom: none;
 }
 
 .hamburgerWrapper ul li a {
-  height: 60px;
-  line-height: 60px;
+  text-decoration: none;
+  display: block;
+  transition: color 0.2s;
 }
+
 
 .hamburgerWrapper ul li a h5 {
   color: var(--color3);
   font-size: 1.2em;
-  border-bottom: 2px solid rgba(230, 55, 70, 0.3);
+  /* border-bottom: 2px solid rgba(230, 55, 70, 0.3); */
 }
 
 .menu ul li:last-child a h5 {
@@ -400,11 +471,11 @@ ul li{
 
 
 .bar{
-    width: 30px;
-    height: 5px;
+    width: 28px;
+    height: 4px;
     background-color: var(--color3);
-    margin: 6px 0px;
-    border-radius: 3px;
+    margin: 2px 0px 8px;
+    border-radius: 2px;
 }
 
 

@@ -110,12 +110,12 @@
   .user-icon{
     width: 24px;
   }
-  .cart-icon {
+  .cart-icon .header-icon {
     scale: 1.3;
     content: url(../pics/cart-red.png);
   }
 
-  .user-icon {
+  .user-icon .header-icon {
     scale: 1.3;
     content: url(../pics/user-red.png);
   }
@@ -133,6 +133,26 @@
 
   .hamburgerWrapper .menu {
     padding: 0;
+  }
+
+  .cart-panel-wrapper.active .cart-panel {
+    /* 根據需要調整位置，例如： */
+    position: fixed;
+    top: 80px; /* 根據你的 header 高度調整 */
+    right: 20px;
+  }
+
+  .bar{
+    /* scale: 0.8; */
+  }
+
+  .cart-panel {
+    width: 85vw; 
+    max-width: 400px;
+  }
+
+  .cart-panel::after {
+    right: 66px;
   }
 }
 
@@ -272,20 +292,14 @@
     position: static;
     font-size: 5em;
     width: 100%;
-    margin-bottom: 20px;
-    /* border: 1px solid red; */
+    margin-bottom: 32px;
   }
-
-  /* #mobile-break-title{
-    padding-inline-start: 48px;
-  } */
 
   .wrapper-p1 .pr1 {
     position: static;
     width: 100%;
     font-size: 1.4em;
-    margin-bottom: 10px;
-    /* border: 1px solid red; */
+    margin-bottom: 20px;
   }
   
   .wrapper-p1 .pr2 {
@@ -317,6 +331,8 @@
   list-style: none;
   min-width: 100%;
 }
+
+
 
 }
 

@@ -738,7 +738,16 @@ section .herop2button {
   display: inline-block;
   align-self: end;
   cursor: pointer;
+  transition: transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.notice-panel #closeButton:hover {
+  transform: scale(1.1) rotate(90deg);
+}
+
 
 .notice-panel-wrapper.show {
   opacity: 1;

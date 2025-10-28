@@ -19,70 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
-=
-    <script>
-
-      $(function () {
-        // let $('.hero-container-l').height() = 750;
-        let imgCount = $('#content li').length;
-
-        function get_height(){
-          if(window.innerWidth > 820){
-            return `translateY(${$('.hero-container-l').height() * index * -1}px)`
-
-          }else{
-            return `translateX(${$('.hero-container-l').height() * index * -1}px)`
-          }
-        }
-
-        
-        
-        let index = 0;
-        let timer = setInterval(moveToNext, 5000);
-
-        $('.hero-dot').click(function(e) {
-          e.preventDefault();
-          clearInterval(timer);
-          
-          // <第幾個li>
-          index = $(this).parent().index();
-          
-          // move
-          $('#content').css({
-            transform: get_height()
-          });
-          
-          // update dot
-          $('.hero-dot').removeClass('active');
-          $(this).addClass('active');
-          
-          // timer reset
-          timer = setInterval(moveToNext, 5000);
-        });
-
-        // move to next one
-        function moveToNext() {
-          if(index < imgCount - 1) {
-            index++;
-          } else {
-            index = 0;
-          }
-          
-          // move
-          $('#content').css({
-            transform: get_height()
-          });
-          
-          // updat dot
-          $('.hero-dot').removeClass('active');
-          $('.hero-dot').eq(index).addClass('active');
-        }
-        
-        // init active
-        $('.hero-dot:first').addClass('active');
-    });
-    </script>
-    <title>Hero</title>
+    <title>Index</title>
   </head>
 
   <body>
@@ -235,6 +172,8 @@
       </div>
     </div>
       <!---------------------------- script ----------------------------------->
+    <script src="./js/header.js"></script>
+    <script src="./js/index.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
 
@@ -242,11 +181,12 @@
         .then((res) => res.text())
         .then((data) => {
             document.querySelector("header").innerHTML = data;
-            
-            $('.menu').click(function(){
-                $(this).toggleClass('active');
-                // console.log('Menu clicked! Active class toggled.');
-            });
+            initHeader();
+            // Hamburger
+            // $('.menu').click(function(){
+            //     $(this).toggleClass('active');
+            //     // console.log('Menu clicked! Active class toggled.');
+            // });
         });
           
         fetch("./footer.html")
