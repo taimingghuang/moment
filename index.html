@@ -23,8 +23,19 @@
     <script>
 
       $(function () {
-        let divHeight = 750;
+        // let $('.hero-container-l').height() = 750;
         let imgCount = $('#content li').length;
+
+        function get_height(){
+          if(window.innerWidth > 820){
+            return `translateY(${$('.hero-container-l').height() * index * -1}px)`
+
+          }else{
+            return `translateX(${$('.hero-container-l').height() * index * -1}px)`
+          }
+        }
+
+        
         
         let index = 0;
         let timer = setInterval(moveToNext, 5000);
@@ -38,7 +49,7 @@
           
           // move
           $('#content').css({
-            transform: `translateY(${divHeight * index * -1}px)`
+            transform: get_height()
           });
           
           // update dot
@@ -59,7 +70,7 @@
           
           // move
           $('#content').css({
-            transform: `translateY(${divHeight * index * -1}px)`
+            transform: get_height()
           });
           
           // updat dot
@@ -83,7 +94,7 @@
       <main class="page1">
         <div class="wrapper-p1">
           <aside class="aside-circle">
-            <ul>
+            <ul class="aside-circle-dots">
               <li>
                 <a class="hero-dot active" data-hero="herophoto1"><img src="./pics/Oval333.png" alt="circle1" /></a>
               </li>
@@ -134,14 +145,14 @@
           <div class="hero-container-r">
             <h1 class="hero-title">
               Beauty in <br />
-              every <span class="colorful">moment.</span>
+              <span id="mobile-break-title"></span>every <span class="colorful">moment.</span>
             </h1>
             <img class="hero-pic-r" src="./pics/small_pics/memoli/IMG_5085-min.JPG" alt="" />
             <p class="pr1">
-              為美而生的攝影空間，在台北也能<br />遇見世界的格調。您留下的不只是<br />照片，而是永恆的回憶。
+              為美而生的攝影空間，在台北也能<br class="mobile-break"/>遇見世界的格調。<br class="desktop-break">您留下的不只是<br class="mobile-break"/>照片，而是永恆的回憶。
             </p>
             <p class="pr2">
-              Every shoot, every smile, every memory —<br />beautifully
+              Every shoot, every smile, every memory —<br class="mobile-break"/>beautifully
               preserved here.
             </p>
             <a class="herop1button" href="./studios.html">查看更多</a>

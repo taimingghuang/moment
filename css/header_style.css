@@ -44,7 +44,11 @@ header .right-header {
 
 .left-header{
   display: block;
+}
 
+.header-logo-wrapper a {
+  display: block;
+  margin: 0 auto;
 }
 
 .right-header {
@@ -361,7 +365,7 @@ header a {
     right: 0;
     top: 40px;
     background-color: var(--color1);
-    width: 200px;
+    width: 240px;
     opacity: 0;
     pointer-events: none; 
     z-index: 998;
@@ -372,7 +376,7 @@ header a {
 .menu.active ul{
     opacity: 1;
     pointer-events: auto;
-    border: 2px solid rgba(230, 55, 70, 0.3);
+    outline: 2px solid rgba(230, 55, 70, 0.3);
 }
 
 ul li{
@@ -380,13 +384,13 @@ ul li{
 }
 
 .hamburgerWrapper ul li a {
-  height: 40px;
-  line-height: 40px;
+  height: 60px;
+  line-height: 60px;
 }
 
 .hamburgerWrapper ul li a h5 {
   color: var(--color3);
-  font-size: 16px;
+  font-size: 1.2em;
   border-bottom: 2px solid rgba(230, 55, 70, 0.3);
 }
 
@@ -396,12 +400,13 @@ ul li{
 
 
 .bar{
-    width: 32px;
-    height: 6px;
+    width: 30px;
+    height: 5px;
     background-color: var(--color3);
     margin: 6px 0px;
     border-radius: 3px;
 }
+
 
 .menu.active .bar1{transform: rotate(-45deg) translate(-9px, 7px);} /* x, y軸 */
 .menu.active .bar2{opacity: 0;}

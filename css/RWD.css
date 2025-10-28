@@ -1,7 +1,7 @@
 
 /* ====================== Header  ======================*/
 
-
+/* 1200 */
 @media (max-width: 1200px) {
   .header-container {
     gap: 60px;
@@ -13,6 +13,7 @@
   }
 }
 
+/* 1100 */
 @media (max-width: 1100px) {
   .header-container {
     gap: 50px;
@@ -46,6 +47,7 @@
 }
 }
 
+/* 992 */
 @media (max-width: 992px) {
   .header-container {
     gap: 30px;
@@ -57,6 +59,7 @@
   }
 }
 
+/* 900 */
 @media (max-width: 900px) {
   .header-container {
     gap: 8px;
@@ -73,25 +76,25 @@
 @media screen and (max-width: 820px){
   .header-container {
     padding: 0 10px;
-    justify-content: space-between;
+    justify-content: center;
     padding-inline-start: 20px;
   }
   .header-logo-wrapper {
     order: 1;
-    flex-grow: 1;
-    text-align: center;
+    flex-grow: 0;
+    text-align: left;
   }
   .header-container .left-header{
     order: 2;
     display: none;
+    flex-grow: 1;
+
   }
   .header-container .right-header{
-    order: 3;
+    order: 2;
     display: none;
+    flex-grow: 1;
   }
-  /* .header-container .header-fixed:not(.cart-panel-wrapper){
-    display: none;
-  } */
 
   .header-fixed{
     order: 3;
@@ -99,23 +102,222 @@
     top: 50%; 
     transform: translateY(-50%);  
     right: 20px;
+    gap: 18px;
+    align-items: center;
   }
 
   .cart-icon,
+  .user-icon{
+    width: 24px;
+  }
+  .cart-icon {
+    scale: 1.3;
+    content: url(../pics/cart-red.png);
+  }
+
   .user-icon {
-      display: none;
+    scale: 1.3;
+    content: url(../pics/user-red.png);
   }
 
   .header-fixed .hamburgerWrapper{
     width: auto; 
     margin: 0;
     display: block;
+    padding-top: 10px;
   }
   .menu ul{
     right: 0; 
     left: auto;
   }
+
+  .hamburgerWrapper .menu {
+    padding: 0;
+  }
+}
+
 /* 440 */
+@media screen and (max-width: 440px){
+
+  .header-container {
+    padding: 0 10px;
+    justify-content: center;
+    padding-inline-start: 20px;
+  }
+
+  .header-logo-wrapper{
+    scale: 1.2;
+  }
+
+  .header-fixed .hamburgerWrapper{
+    scale: 1.1;
+    padding-top: 10px;
+  }
+}
+
+/* ====================== Index Page  ======================*/
+/* 1100 */
+@media (max-width: 1100px) {
+  .hero-container-l {
+    width: 800px;
+  }
+  .hero-container-r {
+    width: 100%;
+  }
+}
+
+/* 885 */
+@media (max-width: 885px) {
+  .wrapper-p1 .pr1 {
+    font-size: 1.15em;
+    left: 80px;
+  }
+
+  .wrapper-p1 .pr2 {
+    font-size: 0.9em;
+    left: 80px;
+  }
+
+  .wrapper-p1 .herop1button {
+    top: 496px;
+    left: 80px;
+  }  
+}
+
+
+/* 820
+@media (max-width: 820px) {
+  
+
+  .hero-container-r {
+    width: 100%;
+    margin-top: 80px;
+  }
+  
+  .hero-container-l {
+    width: 800px;
+    height: 700px;
+    margin-top: 30px;
+  }
+
+  .hero-title {
+  }
+  
+  .wrapper-p1 .pr1 {
+    font-size: 1.1em;
+    left: 80px;
+  }
+
+  .wrapper-p1 .pr2 {
+    font-size: 0.85em;
+    left: 80px;
+  }
+
+  .wrapper-p1 .herop1button {
+    top: 496px;
+    left: 80px;
+  }  
+
+} */
+
+/* 820 */
+@media (max-width: 820px) {
+
+  .wrapper-p1 {
+    display: block;
+  }
+
+  .hero-container-r img{
+    display: none;
+  }
+  
+  .hero-container-l {
+    width: 90%;
+    height: auto;
+    aspect-ratio: 1 / 1; 
+    margin: 20px auto 0;
+    margin-right: 22px;
+    margin: 0 auto;
+  }
+
+  #content li {
+    outline: 1px solid var(--color1);
+    outline-offset: -10px;
+  }
+
+  .aside-circle {
+    margin-bottom: 16px;
+  }
+  .aside-circle-dots{
+    display: flex;  
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .hero-dot {
+    width: 20px;
+  }
+
+  .hero-container-r {
+    box-shadow: none;
+    margin-top: -92px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    /* border: 1px solid red; */
+  }
+
+  .hero-title{
+    display: block;
+    position: static;
+    font-size: 5em;
+    width: 100%;
+    margin-bottom: 20px;
+    /* border: 1px solid red; */
+  }
+
+  /* #mobile-break-title{
+    padding-inline-start: 48px;
+  } */
+
+  .wrapper-p1 .pr1 {
+    position: static;
+    width: 100%;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    /* border: 1px solid red; */
+  }
+  
+  .wrapper-p1 .pr2 {
+    position: static;
+    width: 100%;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+  }
+
+  .mobile-break{
+    display: none;
+  }
+
+  .wrapper-p1 .pr1 .desktop-break {
+  display: block;
+  } 
+  .wrapper-p1 .herop1button {
+    position: static;
+    margin: 0 auto;
+  }
+
+  #content {
+    display: flex;
+  }
+
+  #content li {
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  min-width: 100%;
+}
+
 }
 
 
@@ -123,9 +325,6 @@
 
 
 
-
-
-/* ====================== Index Page  ======================*/
 
 
 
