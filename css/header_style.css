@@ -331,7 +331,7 @@ header a {
   display: block;
   text-decoration: none;
   color: var(--color1);
-  width: 120px;
+  max-width: 120px;
   background-color: var(--color3);
   border-radius: 8px;
   text-align: center;

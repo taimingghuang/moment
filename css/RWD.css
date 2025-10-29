@@ -124,7 +124,7 @@
     width: auto; 
     margin: 0;
     display: block;
-    padding-top: 10px;
+    padding-top: 8px;
   }
   .menu ul{
     right: 0; 
@@ -135,6 +135,15 @@
     padding: 0;
   }
 
+  .bar{
+    /* scale: 0.8; */
+  }
+
+  .cart-panel {
+    width: 80vw; 
+    max-width: 350px;
+  }
+
   .cart-panel-wrapper.active .cart-panel {
     /* 根據需要調整位置，例如： */
     position: fixed;
@@ -142,17 +151,27 @@
     right: 20px;
   }
 
-  .bar{
-    /* scale: 0.8; */
-  }
-
-  .cart-panel {
-    width: 85vw; 
-    max-width: 400px;
-  }
-
   .cart-panel::after {
     right: 66px;
+  }
+}
+
+/*540*/
+@media (max-width: 540px) {
+  .header-logo-wrapper{
+    scale: 0.9;
+  }
+  .header-fixed {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    scale: 0.9;
+    padding-top: 0;
+  }
+
+  .header-fixed .hamburgerWrapper{
+    scale: 0.85;
+    padding-top: 6px;
   }
 }
 
@@ -166,16 +185,27 @@
   }
 
   .header-logo-wrapper{
-    scale: 1.2;
+    scale: 0.8;
+  }
+  
+  .header-fixed {
+    position: absolute;
+    right: 0;
+    top: 16px;
+    scale: 0.8;
+    
   }
 
   .header-fixed .hamburgerWrapper{
-    scale: 1.1;
-    padding-top: 10px;
+    scale: 0.75;
+    padding-top: 8px;
   }
+
 }
 
 /* ====================== Index Page  ======================*/
+
+/* P1 */
 /* 1100 */
 @media (max-width: 1100px) {
   .hero-container-l {
@@ -204,42 +234,6 @@
   }  
 }
 
-
-/* 820
-@media (max-width: 820px) {
-  
-
-  .hero-container-r {
-    width: 100%;
-    margin-top: 80px;
-  }
-  
-  .hero-container-l {
-    width: 800px;
-    height: 700px;
-    margin-top: 30px;
-  }
-
-  .hero-title {
-  }
-  
-  .wrapper-p1 .pr1 {
-    font-size: 1.1em;
-    left: 80px;
-  }
-
-  .wrapper-p1 .pr2 {
-    font-size: 0.85em;
-    left: 80px;
-  }
-
-  .wrapper-p1 .herop1button {
-    top: 496px;
-    left: 80px;
-  }  
-
-} */
-
 /* 820 */
 @media (max-width: 820px) {
 
@@ -249,6 +243,12 @@
 
   .hero-container-r img{
     display: none;
+  }
+
+  .hero-container-r {
+    padding-left: 10px;
+    padding-right: 10px;
+    height: auto;
   }
   
   .hero-container-l {
@@ -330,18 +330,153 @@
   height: 100%;
   list-style: none;
   min-width: 100%;
+  }
 }
 
+/* 440 */
+@media (max-width: 440px) {
+  .hero-container-r{
+    padding-left: 12px;
+  }
+  .hero-title{
+    font-size: 4.5em;
+    margin-bottom: 2px;
+  }
 
+  .wrapper-p1 .pr1 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+  }
 
+  .wrapper-p1 .pr2 {
+    font-size: 1em;
+    margin-bottom: 16px;
+  }
+
+  .wrapper-p1 .herop1button{
+    width: 140px;
+  }
+
+  .cart-panel {
+    width: 60vw; 
+    max-width: 282px;
+    padding-bottom: 0px;
+  }
+
+  .cart-panel-wrapper.active .cart-panel {
+    /* 根據需要調整位置，例如： */
+    position: fixed;
+    top: 70px; /* 根據你的 header 高度調整 */
+    right: 0px;
+  }
+
+  .cart-total h4  {
+    line-height: 1;
+    font-size: 0.8em;
+  }
+
+  .goToCheckOut {
+    width: 100px;
+    line-height: 32px;
+  }
+  .cart-icon a {
+    display: ;
+  }
 }
+/* P2 */
+
+/* 820*/
+
+
+
+
+/* 440 */
 
 
 
 
 
+
+
+/* P3 */
+
+/* 820*/
+
+
+
+
+/* 440 */
+
+
+
+
+
+
+
+
+
+/* P4 */
+
+/* 820*/
+
+
+
+
+/* 440 */
 
 
 
 
 /* ====================== About Page  ======================*/
+
+
+
+
+
+
+
+/* ====================== Footer  ======================*/
+
+@media (max-width: 992px) {
+  .wrapper-footer .part-l{
+    scale: 0.8;
+  }
+  .wrapper-footer .part-r{
+    scale: 0.8;
+}
+}
+
+@media (max-width: 820px) {
+  .hero-footer {
+    padding: 22px;
+  }
+
+  .wrapper-footer {
+    flex-direction: column;
+  }
+
+  .wrapper-footer .part-r {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .wrapper-footer .footer-ig ul{
+    scale: 0.95;
+    gap: 18px;
+  }
+
+  .footer-copyright p {
+    font-size: 0.8em;
+  }
+
+  .up-button a img {
+    width: 28px;
+  }
+  .up-button {
+  position: absolute;
+  right: 10px;
+  bottom: 6px;
+  position: fixed;
+  width: 28px;
+  }
+}

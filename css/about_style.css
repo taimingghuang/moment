@@ -86,11 +86,14 @@ header:has(.header-logo:hover) .left-header li:nth-child(1) a {
 }
 
 .about-p1-l h2 {
+  
   font-family: "DM Sans", sans-serif;
   color: var(--color3);
   font-weight: bold;
   font-size: 3.5em;
   line-height: 64px;
+  text-shadow: 2px 2px 4px var(--color1), 4px 4px 8px rgba(0, 0, 0, 0.15);
+
 }
 
 .about-p1-l .pr1 p {
