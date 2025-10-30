@@ -405,7 +405,7 @@ header a {
     top: 80px;
     right: 20px;
     background-color: var(--color1);
-    width: 300px;
+    width: 460px;
     max-width: 85vw;
     opacity: 0;
     pointer-events: none; 

@@ -2,7 +2,7 @@
 .hero-footer {
   width: 100%;
   background-color: var(--color4);
-  padding: 40px;
+  padding: 40px 20px;
 }
 .wrapper-footer {
   min-height: 160px;
@@ -16,6 +16,7 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
+
 }
 
 .wrapper-footer .part-r {
@@ -36,7 +37,7 @@
 .wrapper-footer .footer-ig ul {
   display: flex;
   gap: 20px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .wrapper-footer .footer-ig ul li img {
@@ -50,9 +51,14 @@
 .footer-information p {
   color: var(--color2);
   line-height: 1.8; 
+  width: ;
 }
 
 .footer-copyright p {
   font-size: 1em;
   color: var(--color5);
+}
+
+
+.footer-information {
 }

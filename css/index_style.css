@@ -189,12 +189,20 @@ body {
   margin: 0 auto;
 }
 
+.wrapper-p2-text {
+  /* padding-left: 40px; */
+}
+
+.wrapper-p2-text-break{
+  display: none;
+}
+
 .wrapper-p2 {
   display: flex;
   align-items: center;
   background-color: var(--color1);
   position: relative;
-  gap: 60px;
+  gap: 100px;
   margin: 0 auto 220px;
   max-width: 1200px;
   width: 90%;
@@ -237,7 +245,7 @@ body {
 }
 
 
-.wrapper-p2 .p2-l .herop2button {
+.wrapper-p2 .herop2button {
   display: block;
   text-decoration: none;
   color: var(--color1);
@@ -248,6 +256,10 @@ body {
   text-align: center;
   line-height: 54px;
   font-size: 1.1em;
+  position: absolute;
+  left: 40%;
+  top: 115%;
+
 }
 
 .wrapper-p2 .p2-r {
@@ -434,7 +446,20 @@ body {
   left: 52%;
   transform: translateX(-55%);
   z-index: 2;
+  animation: float-container 3s ease-in-out infinite;
 }
+
+  @keyframes float-container {
+  0% {
+    transform: translateX(-55%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(-55%);
+  }
+  }
 
 .page4 .p5pic img {
   width: 450px;
