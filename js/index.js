@@ -53,6 +53,7 @@ $(function () {
           $('.hero-dot').removeClass('active');
           $('.hero-dot').eq(index).addClass('active');
         }
+
         
         // init active
         $('.hero-dot:first').addClass('active');
