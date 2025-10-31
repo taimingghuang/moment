@@ -5,6 +5,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   background-color: var(--color1);
+  padding-top: 80px;
 }
 
 :root {
@@ -20,9 +21,14 @@ body {
 }
 
 .portfolio-wrapper {
-  /* max-width: 1200px; */
-  margin: 0 auto; /*置中*/
-  padding-top: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px 0;
+}
+
+.content-scaler {
+  width: 100%; 
+  margin: 0 auto;
 }
 
 /* ------------------------------選單變色，每個分頁要調整的部分 ------------------------------*/
@@ -53,16 +59,13 @@ header:has(.header-logo:hover) .left-header li:nth-child(3) a {
   transform: none;
 }
 /* ------------------------------以上為選單變色，每個分頁要調整的部分 ------------------------------*/
-.portfolio-page1 {
-}
-
 .portfolio-page1-wrapper {
+  width: 100%;
   display: flex;
   justify-content: center;
   gap: 100px;
   align-items: end;
-  margin-top: 60px;
-  padding-bottom: 30px;
+  margin: 60px 0 30px;
   /* border-bottom: 1px solid var(--color5); */
 }
 
@@ -86,7 +89,8 @@ header:has(.header-logo:hover) .left-header li:nth-child(3) a {
 }
 
 .portfolio-page1-r ul {
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
   display: flex;
   flex: 1;
   text-align: center;
@@ -113,25 +117,23 @@ header:has(.header-logo:hover) .left-header li:nth-child(3) a {
 .portfolio-page1-r ul li a {
   display: block;
   font-size: 1em;
-  padding: 10px 0;
+  padding: 10px 10px;
   color: var(--color2);
   text-decoration: none;
-  line-height: 24px;
+  line-height: 20px;
 }
 
 .portfolio-page1-r ul li:hover{
   flex-shrink: 0;
   flex-grow: 3;
-  /* transform: scale(1.1); */
+  transform: scale(1.05);
   font-weight: bold;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .portfolio-page1-r ul li a:hover{
   color: var(--color3);  
-
-}
-
+}  
 
 /*-------------------------------P1 Part----------------------------*/
 .commercialshooting-text {
@@ -469,15 +471,124 @@ header:has(.header-logo:hover) .left-header li:nth-child(3) a {
   margin-bottom: 80px;
 }
 
-/*----------------------------Up button-------------------------------*/
-.up-button {
-  position: absolute;
-  right: 20px;
-  bottom: 15px;
-  position: fixed;
-  width: 40px;
+.commercialshooting-photo,
+.pre-wedding-photo,
+.year1-photo,
+.courses-photo,
+.popup-photo {
+  width: 95%;
+  max-width: 1000px;
+  height: 800px; 
+  display: grid;
+  gap: 10px;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 50px;
 }
 
-.up-button a img {
-  width: 40px;
+
+/* ==================== Lightbox 樣式 ==================== */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+  display: block;
+  opacity: 1;
+}
+
+.lightbox-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px 20px;
+}
+
+.lightbox-content img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  font-size: 28px;
+  line-height: 1.6;
+  cursor: pointer;
+  color: var(--color2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10001;
+  padding: 0;
+}
+
+.lightbox-close:hover {
+  background: var(--color1);
+  transform: scale(1.1);
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  font-size: 36px;
+  line-height: 1.6;
+  cursor: pointer;
+  color: var(--color2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10001;
+}
+
+.lightbox-prev {
+  left: 20px;
+}
+
+.lightbox-next {
+  right: 20px;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: var(--color1);
+  transform: translateY(-50%) scale(1.1);
 }

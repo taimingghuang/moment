@@ -19,7 +19,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
-      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+          
     <title>Reviews</title>
   </head>
 
@@ -27,7 +29,7 @@
     <header></header>
 
     <div class="reviews-wrapper"> 
-      <!-- -----------------------------P1 Part-------------------------- -->
+<!-- -----------------------------P1 Part-------------------------- -->
       <main class="reviews-p1">
         <div class="reviews-top">
           <h1>Customer <span>Reviews</span></h1>
@@ -69,8 +71,7 @@
           </ul>
         </div>
       </main>
-      <!-- -----------------------------P2 Part-------------------------- -->
-
+<!-- -----------------------------P2 Part-------------------------- -->
       <article class="reviews-p2">
         <div class="reviews-section">
           <!-- 1 -->
@@ -101,7 +102,7 @@
           <h3>空間很好運用、景也好看、光線也不錯！ 交通方便下次還會去👍🏼</h3>
         </div>
       </article>
-      <!-- -----------------------------P3 Part-------------------------- -->
+<!-- -----------------------------P3 Part-------------------------- -->
       <section class="reviews-p3">
         <img class="talkicon" src="./pics/talk.png" alt="" />
         <h3>分享你的Moment</h3>
@@ -113,17 +114,42 @@
       </section>
     </div>
     <footer></footer>
-  <!---------------------------- script ----------------------------------->
+<!---------------------------- script ----------------------------------->
+    <script src="./js/header.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/up_button.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        fetch("./header.html")
-          .then((res) => res.text())
-          .then((data) => (document.querySelector("header").innerHTML = data));
 
+        fetch("./header.html")
+        .then((res) => res.text())
+        .then((data) => {
+            document.querySelector("header").innerHTML = data;
+            initHeader();
+        });
+          
         fetch("./footer.html")
           .then((res) => res.text())
           .then((data) => (document.querySelector("footer").innerHTML = data));
-      });
-    </script>  
+
+        fetch("./up_button.html")
+          .then((res) => res.text())
+          .then((data) => {
+          // 取得 body 元素
+          const body = document.querySelector('body'); 
+          
+          if (body) {
+            // 使用 insertAdjacentHTML 將按鈕內容附加到 body 的最末端
+            // 這樣它就不會覆蓋 body 裡原有的內容 (例如 footer)
+            body.insertAdjacentHTML('beforeend', data); 
+            
+            // HTML 內容載入成功後，接著執行它的 JS 邏輯
+            initUpButton(); 
+            } else {
+              console.error('找不到 body 元素');
+            }          
+          }
+      )});
+    </script>
   </body>
 </html>

@@ -21,6 +21,7 @@ body {
   /* max-width: 1200px; */
   margin: 0 auto; /*置中*/
   padding-top: 80px;
+  margin-bottom: 40px;
 }
 
 /* ------------------------------選單變色，每個分頁要調整的部分 ------------------------------*/
@@ -164,13 +165,13 @@ header:has(.header-logo:hover) .left-header li:nth-child(1) a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 160px;
+  gap: 260px;
   margin-top: 100px;
 }
 
 .top-part {
-  /* border: 1px solid red; */
-  width: 950px;
+  width: 90%;
+  /* min-width: 768px; */
   margin: 0 auto;
   text-align: center;
   display: flex;
@@ -212,23 +213,25 @@ header:has(.header-logo:hover) .left-header li:nth-child(1) a {
 }
 
 .top-part ul li img:hover {
-  transform: scale(1.6);
+  transform: scale(1.3);
   transition: transform 0.3s ease
 }
 
 
 .about-second-pic {
-  width: 1000px;
-  min-width: 1000px;
+  width: 100%;
+  min-width: auto;
   position: relative;
   margin: 0 auto;
   height: 212px;
 }
 .second-part img {
   display: block;
+  max-width: 1000px;
   width: 100%;
   opacity: 0.9;
   height: 212px;
+  margin: 0 auto;
 }
 
 .about-wrapper-p2 .second-part h2 {
@@ -250,5 +253,5 @@ header:has(.header-logo:hover) .left-header li:nth-child(1) a {
 .about-wrapper-p2 .second-part {
   position: relative;
   height: 212px;
-  min-width: 1000px;
+  /* min-width: 1000px; */
 }

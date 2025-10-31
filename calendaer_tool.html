@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日期與時段選擇器</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .calendar-wrapper {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .calendar-header button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .calendar-header button:hover {
+            background: #f3f4f6;
+        }
+
+        .calendar-header h2 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .weekday {
+            text-align: center;
+            font-weight: 600;
+            color: #6b7280;
+            font-size: 14px;
+            padding: 8px 0;
+        }
+
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+        }
+
+        .day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            background: #f3f4f6;
+        }
+
+        .day.other-month {
+            color: #d1d5db;
+            cursor: not-allowed;
+            background: transparent;
+        }
+
+        .day.current-month:hover {
+            background: #e5e7eb;
+            transform: scale(1.05);
+        }
+
+        .day.selected {
+            background: #dc2626 !important;
+            color: white !important;
+        }
+
+        .time-section {
+            background: #fffbeb;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .time-section.hidden {
+            display: none;
+        }
+
+        .clock-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            background: #fef3c7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .time-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .time-slot {
+            padding: 12px;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .time-slot:hover {
+            border-color: #dc2626;
+            transform: scale(1.05);
+        }
+
+        .time-slot.selected {
+            background: #dc2626 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+
+        .confirm-btn {
+            width: 100%;
+            padding: 16px;
+            background: #dc2626;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .confirm-btn:hover {
+            background: #b91c1c;
+        }
+
+        .confirm-btn.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="calendar-wrapper">
+            <div class="calendar-header">
+                <button id="prevMonth">←</button>
+                <h2 id="monthYear">February</h2>
+                <button id="nextMonth">→</button>
+            </div>
+            <div class="weekdays">
+                <div class="weekday">Mo</div>
+                <div class="weekday">Tu</div>
+                <div class="weekday">We</div>
+                <div class="weekday">Th</div>
+                <div class="weekday">Fr</div>
+                <div class="weekday">Sa</div>
+                <div class="weekday">Su</div>
+            </div>
+            <div class="days" id="calendarDays"></div>
+        </div>
+
+        <div class="time-section hidden" id="timeSection">
+            <div class="clock-icon">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#92400e" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+            </div>
+            <h3 id="selectedDateText">請先選擇日期</h3>
+            <div class="time-slots" id="timeSlots"></div>
+            <button class="confirm-btn hidden" id="confirmBtn">立即下訂</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            let currentDate = new Date(2025, 1);
+            let selectedDate = null;
+            let selectedTime = null;
+
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
+                              'July', 'August', 'September', 'October', 'November', 'December'];
+            
+            const timeSlots = [
+                '09:00', '10:00', '11:00', '12:00', 
+                '13:00', '14:00', '15:00', '16:00',
+                '17:00', '18:00', '19:00', '20:00'
+            ];
+
+            function renderCalendar() {
+                const year = currentDate.getFullYear();
+                const month = currentDate.getMonth();
+                
+                $('#monthYear').text(monthNames[month]);
+                
+                const firstDay = new Date(year, month, 1).getDay();
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+                const daysInPrevMonth = new Date(year, month, 0).getDate();
+                
+                let html = '';
+                const adjustedFirstDay = firstDay === 0 ? 6 : firstDay - 1;
+                
+                for (let i = adjustedFirstDay - 1; i >= 0; i--) {
+                    html += '<button class="day other-month">' + (daysInPrevMonth - i) + '</button>';
+                }
+                
+                for (let i = 1; i <= daysInMonth; i++) {
+                    const isSelected = selectedDate && selectedDate.day === i && 
+                                     selectedDate.month === month && selectedDate.year === year;
+                    html += '<button class="day current-month' + (isSelected ? ' selected' : '') + '" data-day="' + i + '">' + i + '</button>';
+                }
+                
+                const totalCells = adjustedFirstDay + daysInMonth;
+                const remainingCells = totalCells <= 35 ? 35 - totalCells : 42 - totalCells;
+                for (let i = 1; i <= remainingCells; i++) {
+                    html += '<button class="day other-month">' + i + '</button>';
+                }
+                
+                $('#calendarDays').html(html);
+            }
+
+            function renderTimeSlots() {
+                let html = '';
+                for (let i = 0; i < timeSlots.length; i++) {
+                    const time = timeSlots[i];
+                    const isSelected = selectedTime === time;
+                    html += '<button class="time-slot' + (isSelected ? ' selected' : '') + '" data-time="' + time + '">' + time + '</button>';
+                }
+                $('#timeSlots').html(html);
+            }
+
+            $('#prevMonth').click(function() {
+                currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1);
+                renderCalendar();
+            });
+
+            $('#nextMonth').click(function() {
+                currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1);
+                renderCalendar();
+            });
+
+            $(document).on('click', '.day.current-month', function() {
+                const day = parseInt($(this).data('day'));
+                selectedDate = {
+                    day: day,
+                    month: currentDate.getMonth(),
+                    year: currentDate.getFullYear()
+                };
+                selectedTime = null;
+                
+                $('.day').removeClass('selected');
+                $(this).addClass('selected');
+                
+                $('#timeSection').removeClass('hidden');
+                $('#selectedDateText').text(monthNames[selectedDate.month] + ' ' + day + ', ' + selectedDate.year);
+                $('#confirmBtn').addClass('hidden');
+                
+                renderTimeSlots();
+            });
+
+            $(document).on('click', '.time-slot', function() {
+                selectedTime = $(this).data('time');
+                $('.time-slot').removeClass('selected');
+                $(this).addClass('selected');
+                $('#confirmBtn').removeClass('hidden');
+            });
+
+            $('#confirmBtn').click(function() {
+                if (selectedDate && selectedTime) {
+                    alert('已選擇：' + monthNames[selectedDate.month] + ' ' + selectedDate.day + ', ' + selectedDate.year + ' - ' + selectedTime);
+                }
+            });
+
+            renderCalendar();
+        });
+    </script>
+</body>
+</html>

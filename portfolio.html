@@ -22,15 +22,18 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Noto+Sans+TC:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+    <script src="./js/portfolio-interactions.js"></script>
 
-    <title>Studios-3</title>
+    <title>Portfolio</title>
   </head>
 
   <body>
     <header></header>
 
-    <div class="portfolio-wrapper">
-
+  <div class="portfolio-wrapper">
+    <div class="content-scaler">
     <!-- -----------------------------select Part-------------------------- -->
       <main class="portfolio-page1">
         <div id="com"></div>
@@ -126,18 +129,40 @@
         </div>
       </main>
     </div>
+  </div>
     <footer></footer>
       <!---------------------------- script ----------------------------------->
+    <script src="./js/header.js"></script>
+    <script src="./js/up_button.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        fetch("./header.html")
-          .then((res) => res.text())
-          .then((data) => (document.querySelector("header").innerHTML = data));
 
+        fetch("./header.html")
+        .then((res) => res.text())
+        .then((data) => {
+            document.querySelector("header").innerHTML = data;
+            initHeader();
+        });
+          
         fetch("./footer.html")
           .then((res) => res.text())
           .then((data) => (document.querySelector("footer").innerHTML = data));
-      });
+
+        fetch("./up_button.html")
+          .then((res) => res.text())
+          .then((data) => {
+
+            const body = document.querySelector('body'); 
+          
+          if (body) {
+            body.insertAdjacentHTML('beforeend', data); 
+            
+            initUpButton(); 
+            } else {
+              console.error('找不到 body 元素');
+            }          
+          }
+      )});
     </script>
   </body>
 </html>

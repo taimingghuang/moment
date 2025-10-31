@@ -278,16 +278,3 @@ header:has(.header-logo:hover) .right-header li:nth-child(1) a {
 .reviews-p3 a {
   max-height: 78px;
 }
-
-/*----------------------------Up button-------------------------------*/
-.up-button {
-  position: absolute;
-  right: 20px;
-  bottom: 15px;
-  position: fixed;
-  width: 40px;
-}
-
-.up-button a img {
-  width: 40px;
-}

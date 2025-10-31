@@ -26,7 +26,7 @@
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/datepicker.min.js"></script>
 
     <title>Studios-3</title>
   </head>
@@ -64,7 +64,7 @@
         </div>
         <div class="calendar-container-right">
           <div id='calendar'></div>
-          <!-- <img class="calendar-pic" src="./pics/Frame 560.png" alt="" /> -->
+          <img class="calendar-pic" src="./pics/Frame 560.png" alt="" />
           <div class="calendar-down">
             <img src="./pics/time icon.png" alt="" />
             <h4>請先選擇日期</h4>
@@ -95,6 +95,7 @@
           .then((res) => res.text())
           .then((data) => (document.querySelector("footer").innerHTML = data));
       });
+      
     </script>
   </body>
 </html>
