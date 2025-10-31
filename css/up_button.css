@@ -1,0 +1,12 @@
+/*----------------------------Up button-------------------------------*/
+.up-button {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  position: fixed;
+  width: 40px;
+}
+
+.up-button a img {
+  width: 40px;
+}

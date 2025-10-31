@@ -33,7 +33,6 @@ body {
   justify-content: center;
   gap: 16px;
   margin-right: 8px;
-  padding-left: 8px;
 }
 
 .wrapper-p1 {
@@ -41,6 +40,9 @@ body {
   justify-content: center;
   background-color: var(--color1);
   margin-bottom: 100px;
+  padding-left: 8px;
+  padding-right: 8px;
+
 }
 
 .hero-container-l {
@@ -466,20 +468,6 @@ body {
   object-fit: contain;
   opacity: 0.4;
 }
-
-/*----------------------------Up button-------------------------------*/
-.up-button {
-  position: absolute;
-  right: 20px;
-  bottom: 15px;
-  position: fixed;
-  width: 40px;
-}
-
-.up-button a img {
-  width: 40px;
-}
-/*----------------------------RWD-------------------------------*/
 
 
 

@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./css/about_style.css" />
     <link rel="stylesheet" href="./css/header_style.css" />
     <link rel="stylesheet" href="./css/footer_style.css" />
+    <link rel="stylesheet" href="./css/up_button.css">
     <link rel="stylesheet" href="./css/RWD.css">
 
 
@@ -23,6 +24,7 @@
       rel="stylesheet"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
 
 
     <title>About</title>
@@ -42,29 +44,33 @@
             </div>
             <h2>About</h2>
             <p class="pr1">
-              為美而生的攝影空間，在台北也能<br />遇見世界的格調。您留下的不只是<br />照片，而是永恆的回憶。
+              在光影交織的瞬間<br />
+              捕捉生命中最動人的篇章<br />
+              每一個角落都是為美而生的藝術舞台<br />
+              不必遠行，就在台北的心臟地帶<br />
+              <br />
+              這裡留存的不只是影像<br />
+              而是時光凝結的溫度、笑容綻放的瞬間<br />
+              是關於愛、關於夢想、關於永恆的故事<br />
+              讓每一幀畫面，都成為您心中最珍貴的收藏
             </p>
-            <!-- <a href="#"
-                  ><img
-                    class="herop2button"
-                    src="./pics/button1.png"
-                    alt="查看更多"
-                /></a> -->
           </section>
-          <section class="about-p1-r">
-            <img
-              class="about-p1-imgr1"
-              src="./pics/small_pics/100th/IMG_7744 3-min.JPG"
-              alt="p2pic"
-            />
-          </section>
-          <section class="about-p1-r-2">
-            <img
-              class="about-p1-imgr2"
-              src="./pics/small_pics/memoli/IMG_5099-min.JPG"
-              alt="p2pic"
-            />
-          </section>
+          <div class="about-p1-r-container">
+            <section class="about-p1-r">
+              <img
+                class="about-p1-imgr1"
+                src="./pics/small_pics/100th/IMG_7744 3-min.JPG"
+                alt="p2pic"
+              />
+            </section>
+            <section class="about-p1-r-2">
+              <img
+                class="about-p1-imgr2"
+                src="./pics/small_pics/memoli/IMG_5099-min.JPG"
+                alt="p2pic"
+              />
+            </section>
+          </div>
         </div>
       </div>
       <!-- -----------------------------P2 Part-------------------------- -->
@@ -86,24 +92,43 @@
           </div>
         </div>
       </article>
-    <footer></footer>
-
-      <!-- ---------------------------Up-button-------------------------- -->
-      <div class="up-button">
-        <a href="#"><img src="./pics/up button_red.png" alt="upbottom" /></a>
-      </div>
     </div>
+    <footer></footer>
       <!---------------------------- script ----------------------------------->
+    <script src="./js/header.js"></script>
+    <script src="./js/up_button.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        fetch("./header.html")
-          .then((res) => res.text())
-          .then((data) => (document.querySelector("header").innerHTML = data));
 
+        fetch("./header.html")
+        .then((res) => res.text())
+        .then((data) => {
+            document.querySelector("header").innerHTML = data;
+            initHeader();
+        });
+          
         fetch("./footer.html")
           .then((res) => res.text())
           .then((data) => (document.querySelector("footer").innerHTML = data));
-      });
+
+        fetch("./up_button.html")
+          .then((res) => res.text())
+          .then((data) => {
+          // 取得 body 元素
+          const body = document.querySelector('body'); 
+          
+          if (body) {
+            // 使用 insertAdjacentHTML 將按鈕內容附加到 body 的最末端
+            // 這樣它就不會覆蓋 body 裡原有的內容 (例如 footer)
+            body.insertAdjacentHTML('beforeend', data); 
+            
+            // HTML 內容載入成功後，接著執行它的 JS 邏輯
+            initUpButton(); 
+            } else {
+              console.error('找不到 body 元素');
+            }          
+          }
+      )});
     </script>
   </body>
 </html>
