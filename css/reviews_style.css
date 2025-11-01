@@ -18,9 +18,11 @@ body {
 }
 
 .reviews-wrapper {
-  /* max-width: 1200px; */
+  max-width: 1200px;
   margin: 0 auto; /*置中*/
-  padding-top: 128px;
+  padding-top: 100px;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* ------------------------------選單變色，每個分頁要調整的部分 ------------------------------*/
@@ -100,6 +102,10 @@ header:has(.header-logo:hover) .right-header li:nth-child(1) a {
   line-height: 32px;
 }
 
+.welcome {
+  /* width: 100%; */
+}
+
 .welcome ul {
   display: flex;
   justify-content: center;
@@ -154,8 +160,11 @@ header:has(.header-logo:hover) .right-header li:nth-child(1) a {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 0;
+  padding: 40px 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
+
 .reviews-section h3 {
   font-weight: bold;
   font-size: 1.5em;
@@ -164,17 +173,14 @@ header:has(.header-logo:hover) .right-header li:nth-child(1) a {
   display: flex;
   align-items: center;
   padding: 30px 40px;
-  margin: 10px 0;
 }
 
 .reviews-section h3:nth-child(odd) {
   border-radius: 0 99px 99px 0;
-  margin-right: 10px;
 }
 
 .reviews-section h3:nth-child(even) {
   border-radius: 99px 0 0 99px;
-  margin-left: 10px;
   justify-content: end;
 }
 
@@ -184,7 +190,8 @@ header:has(.header-logo:hover) .right-header li:nth-child(1) a {
   grid-auto-rows: minmax(180px, auto);
   max-width: 1200px;
   width: 100%;
-  gap: 0;
+  gap: 20px;
+  box-sizing: border-box;
 }
 
 .reviews-section span {
@@ -204,7 +211,6 @@ header:has(.header-logo:hover) .right-header li:nth-child(1) a {
 .reviews-section .span1 {
   grid-column: 2 / 3;
   border-radius: 99px 0 0 99px;
-  margin: 10px 0 10px 10px;
 }
 
 .reviews-section .span1 img {
@@ -215,29 +221,29 @@ header:has(.header-logo:hover) .right-header li:nth-child(1) a {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
   border-radius: 0 99px 99px 0;
-  margin: 10px 10px 10px 0;
 }
 
 .reviews-section .span3 {
   border-radius: 99px 0 0 99px;
-  margin: 10px 0 10px 10px;
+  grid-column: 2 / 3;
 }
 
 
 .reviews-section .span4 {
   border-radius: 0 99px 99px 0;
-  margin: 10px 10px 10px 0;
+  grid-column: 1 / 2;
 }
 
 .reviews-section .span5 {
   border-radius: 99px 0 0 99px;
-  margin: 10px 0 10px 10px;
+  grid-column: 2 / 3;
 }
 
 .reviews-section .span6 {
   border-radius: 0 99px 99px 0;
-  margin: 10px 10px 10px 0;
+  grid-column: 1 / 2;
 }
+
 /*-------------------------------P3 Part----------------------------*/
 .reviews-p3 {
   display: flex;
@@ -276,5 +282,317 @@ header:has(.header-logo:hover) .right-header li:nth-child(1) a {
 }
 
 .reviews-p3 a {
-  max-height: 78px;
+  width: 176px;
+  height: 54px;
+  text-align: center;
+  line-height: 54px;
+  font-size: 1.2em;
+  font-weight: bold;
+  display: block;
+  text-decoration: none;
+  color: var(--color1);
+  background-color: var(--color3);
+  border-radius: 8px;
+}
+
+
+/* ==================== Reviews Lightbox 樣式 ==================== */
+
+.reviews-lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+}
+
+.reviews-lightbox.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reviews-lightbox-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.3s ease;
+}
+
+.reviews-lightbox-container {
+  position: relative;
+  width: 90%;
+  max-width: 1100px;
+  max-height: 85vh;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reviews-lightbox-content {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  height: 100%;
+  max-height: 85vh;
+}
+
+.reviews-lightbox-image-wrapper {
+  position: relative;
+  background: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.reviews-lightbox-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.reviews-lightbox-text {
+  padding: 50px 40px;
+  background: linear-gradient(135deg, #FFF9F0 0%, #FFFFFF 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  overflow-y: auto;
+  max-height: 85vh;
+}
+
+.reviews-lightbox-stars {
+  font-size: 2em;
+  color: #FFD700;
+  letter-spacing: 5px;
+  text-align: center;
+  animation: starShine 1s ease-in-out;
+}
+
+@keyframes starShine {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+.reviews-lightbox-review {
+  font-size: 1.4em;
+  line-height: 1.8;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  font-weight: 500;
+}
+
+.reviews-lightbox-counter {
+  text-align: center;
+  font-size: 1em;
+  color: #999;
+  margin-top: auto;
+}
+
+.reviews-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 50%;
+  font-size: 2em;
+  color: #333;
+  cursor: pointer;
+  z-index: 10001;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.reviews-lightbox-close:hover {
+  background: #E84C4F;
+  color: white;
+  transform: rotate(90deg) scale(1.1);
+}
+
+.reviews-lightbox-prev,
+.reviews-lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  font-size: 2.5em;
+  color: #333;
+  cursor: pointer;
+  z-index: 10001;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.reviews-lightbox-prev {
+  left: 20px;
+}
+
+.reviews-lightbox-next {
+  right: 20px;
+}
+
+.reviews-lightbox-prev:hover,
+.reviews-lightbox-next:hover {
+  background: #E84C4F;
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 響應式 */
+@media (max-width: 820px) {
+  .reviews-lightbox-container {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .reviews-lightbox-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.2fr 1fr;
+  }
+
+  .reviews-lightbox-text {
+    padding: 30px 25px;
+    gap: 20px;
+  }
+
+  .reviews-lightbox-stars {
+    font-size: 1.6em;
+  }
+
+  .reviews-lightbox-review {
+    font-size: 1.1em;
+    line-height: 1.6;
+  }
+
+  .reviews-lightbox-close {
+    width: 45px;
+    height: 45px;
+    font-size: 1.8em;
+    top: 15px;
+    right: 15px;
+  }
+
+  .reviews-lightbox-prev,
+  .reviews-lightbox-next {
+    width: 50px;
+    height: 50px;
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 440px) {
+  .reviews-lightbox-container {
+    width: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .reviews-lightbox-content {
+    grid-template-rows: 1fr 0.8fr;
+  }
+
+  .reviews-lightbox-text {
+    padding: 25px 20px;
+    gap: 15px;
+  }
+
+  .reviews-lightbox-stars {
+    font-size: 1.4em;
+    letter-spacing: 3px;
+  }
+
+  .reviews-lightbox-review {
+    font-size: 1em;
+    line-height: 1.5;
+  }
+
+  .reviews-lightbox-close {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5em;
+  }
+
+  .reviews-lightbox-prev,
+  .reviews-lightbox-next {
+    top: auto;
+    bottom: 20px;
+    transform: translateY(0);
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* Hover 效果 */
+@media (min-width: 821px) {
+  .reviews-section span {
+    position: relative;
+  }
+
+  .reviews-section span::after {
+    content: '點擊查看完整評論';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(232, 76, 79, 0.9);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .reviews-section span:hover::after {
+    opacity: 1;
+  }
+}
+
+.reviews-lightbox-text::-webkit-scrollbar {
+  width: 8px;
+}
+
+.reviews-lightbox-text::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.reviews-lightbox-text::-webkit-scrollbar-thumb {
+  background: #E84C4F;
+  border-radius: 10px;
 }
