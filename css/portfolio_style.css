@@ -121,6 +121,7 @@ header:has(.header-logo:hover) .left-header li:nth-child(3) a {
   color: var(--color2);
   text-decoration: none;
   line-height: 20px;
+  font-weight: bold;
 }
 
 .portfolio-page1-r ul li:hover{

@@ -16,7 +16,7 @@ function initGridLoadingAnimation() {
   }, observerOptions);
 
   galleries.forEach(gallery => {
-    // 初始化：所有圖片設為隱藏
+    // init, all img opacity:0
     const items = gallery.querySelectorAll('.photo-item');
     items.forEach(item => {
       item.style.opacity = '0';
@@ -33,7 +33,7 @@ function animateGalleryFromCenter(gallery) {
   const centerX = galleryRect.width / 2;
   const centerY = galleryRect.height / 2;
   
-  // 計算每個元素與中心的距離
+  // distance
   const itemsWithDistance = items.map(item => {
     const rect = item.getBoundingClientRect();
     const itemCenterX = rect.left - galleryRect.left + rect.width / 2;
@@ -47,10 +47,10 @@ function animateGalleryFromCenter(gallery) {
     return { item, distance };
   });
   
-  // 按距離排序（距離近的先出現）
+  // display by dsitance 
   itemsWithDistance.sort((a, b) => a.distance - b.distance);
   
-  // 依序顯示
+  // 
   itemsWithDistance.forEach(({item}, index) => {
     setTimeout(() => {
       item.style.transition = 'all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
@@ -61,9 +61,9 @@ function animateGalleryFromCenter(gallery) {
 }
 
 
-// ==================== Lightbox 圖片放大功能 (820px以下) ====================
+// ==================== Lightbox scale img < 820px ====================
 function initImageClickExpand() {
-  // 創建 Lightbox 結構
+  // create lightbox 
   const lightbox = document.createElement('div');
   lightbox.className = 'lightbox';
   lightbox.innerHTML = `
@@ -102,13 +102,13 @@ function initImageClickExpand() {
     document.body.style.overflow = 'hidden';
   }
   
-  // 關閉 Lightbox
+  // close Lightbox
   function closeLightbox() {
     lightbox.classList.remove('active');
     document.body.style.overflow = '';
   }
   
-  // 顯示上一張
+  // 
   function showPrev() {
     currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
     const img = currentGallery[currentIndex].querySelector('img');
@@ -116,7 +116,7 @@ function initImageClickExpand() {
     lightboxImg.alt = img.alt;
   }
   
-  // 顯示下一張
+  // 
   function showNext() {
     currentIndex = (currentIndex + 1) % currentGallery.length;
     const img = currentGallery[currentIndex].querySelector('img');
@@ -124,7 +124,7 @@ function initImageClickExpand() {
     lightboxImg.alt = img.alt;
   }
   
-  // 為每個 gallery 區塊的圖片添加點擊事件
+  // 
   const galleries = document.querySelectorAll('.commercialshooting-photo, .pre-wedding-photo, .year1-photo, .courses-photo, .popup-photo');
   
   galleries.forEach(gallery => {
@@ -138,13 +138,13 @@ function initImageClickExpand() {
     });
   });
   
-  // 事件監聽
+  // listener
   closeBtn.addEventListener('click', closeLightbox);
   overlay.addEventListener('click', closeLightbox);
   prevBtn.addEventListener('click', showPrev);
   nextBtn.addEventListener('click', showNext);
   
-  // 鍵盤操作
+  // keyboard
   document.addEventListener('keydown', (e) => {
     if (!lightbox.classList.contains('active')) return;
     
@@ -153,7 +153,7 @@ function initImageClickExpand() {
     if (e.key === 'ArrowRight') showNext();
   });
   
-  // 視窗大小改變時關閉 Lightbox
+  // resize then close Lightbox
   window.addEventListener('resize', () => {
     if (window.innerWidth > 820 && lightbox.classList.contains('active')) {
       closeLightbox();
@@ -161,7 +161,7 @@ function initImageClickExpand() {
   });
 }
 
-// ==================== 初始化所有功能 ====================
+// ==================== init ====================
 document.addEventListener('DOMContentLoaded', () => {
   initGridLoadingAnimation();
   initImageClickExpand();

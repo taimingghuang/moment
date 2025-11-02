@@ -136,18 +136,14 @@
         fetch("./up_button.html")
           .then((res) => res.text())
           .then((data) => {
-          // 取得 body 元素
           const body = document.querySelector('body'); 
           
           if (body) {
-            // 使用 insertAdjacentHTML 將按鈕內容附加到 body 的最末端
-            // 這樣它就不會覆蓋 body 裡原有的內容 (例如 footer)
             body.insertAdjacentHTML('beforeend', data); 
             
-            // HTML 內容載入成功後，接著執行它的 JS 邏輯
             initUpButton(); 
             } else {
-              console.error('找不到 body 元素');
+              console.error('no_body');
             }          
           }
       )});

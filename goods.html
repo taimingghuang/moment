@@ -20,22 +20,78 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
-    
+    <script>
+      $(document).ready(function(){
+        $('#category-toggle').on('change', function(){
+          if($(this).is(':checked')){
+            $('#select-toggle').prop('checked', false)
+          }
+        })
+
+        $('#select-toggle').on('change', function(){
+          if($(this).is(':checked')){
+            $('#category-toggle').prop('checked', false)
+          }
+        })
+
+        $(document).on('click', function(e){
+          if(!$(e.target).closest('.select-box').length){
+            $('.select-toggle').prop('checked', false)
+          }
+        })
+
+        $('.select-list a').on('click', function(e) {
+          e.preventDefault();
+          const text = $(this).text();
+          $(this).closest('.select-container').find('.selected-text').text(text);
+          $(this).closest('.select-box').find('.select-toggle').prop('checked', false);
+        });
+      })
+
+    </script>
     <title>Goods</title>
   </head>
 
   <body>
     <header></header>
 
-    <div class="goods-wrapper">
+    <div class="goods-wrapper-container">
     <!-- -----------------------------P1 Part-------------------------- -->
+      <div class="top-banner">
+        <img src="./pics/small_pics/goods/goodsBanenrImage-min.png" alt="">
+      </div>
+
       <main class="goods-wrapper">
-        <div class="top-banner">
-          <img src="./pics/small_pics/goods/goodsBanenrImage-min.png" alt="">
-        </div>
+
         <div class="select-container-container">
-          <div class="select-container">
+          
+          <!-- 分類選單 -->
+          <div class="fliter-wrapper">
+            <div class="select-container category-select">
+              <div class="select-box">
+                <input type="checkbox" id="category-toggle" class="select-toggle" />
+                <label for="category-toggle" class="select-display">
+                  <span class="selected-text">商品分類</span>
+                  <div class="select-arrow-wrapper">
+                    <span class="divider">|</span>
+                    <span class="arrow">
+                      <img src="./pics/mingcute_down-line.png" alt="" />
+                    </span>
+                  </div>
+                </label>
+                <ul class="select-list">
+                  <li><a href="#all">全部商品</a></li>
+                  <li><a href="#clothing">上衣類</a></li>
+                  <li><a href="#bottomswear">下身類</a></li>
+                  <li><a href="#shoes">鞋款類</a></li>
+                  <li><a href="#accessories">配件類</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 排序選單 -->
+          <div class="select-container sort-select">
             <div class="select-box">
               <input type="checkbox" id="select-toggle" class="select-toggle" />
               <label for="select-toggle" class="select-display">
@@ -64,199 +120,222 @@
           <div class="item-1-container items-container">
             <img class="goods-item item-1" src="./pics/small_pics/goods/IMG_7853-min.JPG" alt="">
             <h4>輕小型自拍神器</h4>
-            <p>$699 NTD</p>
+            <p>$999 NTD</p>
             <div class="cart-button">
               <a class="addToCart" href="#"">加入購物車</a>
-              <a class="goToCheckout" href="checkout.html">直接購買</a> 
+              <a class="goToCheckout" href="#">直接購買</a> 
             </div>
           </div>
 
           <div class="item-2-container items-container">
             <img class="goods-item item-2" src="./pics/small_pics/goods/IMG_9518-min.JPG" alt="">
             <h4>氣質感素色上衣</h4>
-            <p>$510 NTD</p>
+            <p>$399 NTD</p>
             <div class="cart-button">
               <a class="addToCart" href="#"">加入購物車</a>
-              <a class="goToCheckout" href="checkout.html">直接購買</a> 
+              <a class="goToCheckout" href="#">直接購買</a> 
             </div>
           </div>
 
           <div class="item-3-container items-container">
             <img class="goods-item item-3" src="./pics/small_pics/goods/IMG_0780-min.JPG" alt="">
-            <h4>氣質感素色上衣</h4>
-            <p>$510 NTD</p>
+            <h4>牛仔喇叭寬褲</h4>
+            <p>$699 NTD</p>
             <div class="cart-button">
               <a class="addToCart" href="#"">加入購物車</a>
-              <a class="goToCheckout" href="checkout.html">直接購買</a> 
+              <a class="goToCheckout" href="#">直接購買</a> 
             </div>
           </div>
 
 
           <div class="item-4-container items-container">
             <img class="goods-item item-4" src="./pics/small_pics/goods/IMG_9520-min.JPG" alt="">
-            <h4>氣質感素色上衣</h4>
-            <p>$510 NTD</p>
+            <h4>質感純色款組合</h4>
+            <p>$999 NTD</p>
             <div class="cart-button">
               <a class="addToCart" href="#"">加入購物車</a>
-              <a class="goToCheckout" href="checkout.html">直接購買</a> 
+              <a class="goToCheckout" href="#">直接購買</a> 
             </div>
           </div>
 
           <div class="item-5-container items-container">
             <img class="goods-item item-5" src="./pics/small_pics/goods/IMG_9515-min.JPG" alt="">
-            <h4>氣質感素色上衣</h4>
-            <p>$510 NTD</p>
+            <h4>輕奢感長裙</h4>
+            <p>$499 NTD</p>
             <div class="cart-button">
               <a class="addToCart" href="#"">加入購物車</a>
-              <a class="goToCheckout" href="checkout.html">直接購買</a> 
+              <a class="goToCheckout" href="#">直接購買</a> 
             </div>
           </div>
 
           <div class="item-6-container items-container">
             <img class="goods-item item-6" src="./pics/small_pics/goods/IMG_0747-min.JPG" alt="">
-            <h4>氣質感素色上衣</h4>
-            <p>$510 NTD</p>
+            <h4>奶茶色背心+氣質感上衣組合</h4>
+            <p>$599 NTD</p>
             <div class="cart-button">
               <a class="addToCart" href="#"">加入購物車</a>
-              <a class="goToCheckout" href="checkout.html">直接購買</a> 
+              <a class="goToCheckout" href="#">直接購買</a> 
             </div>
           </div>
 
           <div class="item-7-container items-container">
             <img class="goods-item item-7" src="./pics/small_pics/goods/IMG_0730-min.JPG" alt="">
-            <h4>氣質感素色上衣</h4>
-            <p>$510 NTD</p>
+            <h4>輕奢簡約薄外套</h4>
+            <p>$699 NTD</p>
             <div class="cart-button">
               <a class="addToCart" href="#"">加入購物車</a>
-              <a class="goToCheckout" href="checkout.html">直接購買</a> 
+              <a class="goToCheckout" href="#">直接購買</a> 
             </div>
           </div>
 
           <div class="item-8-container items-container">
             <img class="goods-item item-8" src="./pics/small_pics/goods/IMG_7429-min.JPG" alt="">
-            <h4>氣質感素色上衣</h4>
-            <p>$510 NTD</p>
+            <h4>婚宴穿搭鞋款組合</h4>
+            <p>$1299 NTD</p>
             <div class="cart-button">
               <a class="addToCart" href="#"">加入購物車</a>
-              <a class="goToCheckout" href="checkout.html">直接購買</a> 
+              <a class="goToCheckout" href="#">直接購買</a> 
             </div>
           </div>
 
           <div class="item-9-container items-container">
             <img class="goods-item item-9" src="./pics/small_pics/goods/IMG_0785-min.JPG" alt="">
-            <h4>氣質感素色上衣</h4>
-            <p>$510 NTD</p>
+            <h4>輕奢簡約薄外套+長裙組合</h4>
+            <p>$999 NTD</p>
             <div class="cart-button">
               <a class="addToCart" href="#"">加入購物車</a>
-              <a class="goToCheckout" href="checkout.html">直接購買</a> 
+              <a class="goToCheckout" href="#">直接購買</a> 
             </div>
           </div>
 
           <div class="item-10-container items-container">
             <img class="goods-item item-10" src="./pics/small_pics/goods/IMG_0795-min.JPG" alt="">
-            <h4>氣質感素色上衣</h4>
-            <p>$510 NTD</p>
+            <h4>咖色保暖外套+長裙組合</h4>
+            <p>$1499 NTD</p>
             <div class="cart-button">
               <a class="addToCart" href="#"">加入購物車</a>
-              <a class="goToCheckout" href="checkout.html">直接購買</a> 
+              <a class="goToCheckout" href="#">直接購買</a> 
             </div>
           </div>
 
           <div class="item-11-container items-container">
             <img class="goods-item item-11" src="./pics/small_pics/goods/IMG_0805-min.JPG" alt="">
-            <h4>氣質感素色上衣</h4>
-            <p>$510 NTD</p>
+            <h4>高雅素面上衣</h4>
+            <p>$599 NTD</p>
             <div class="cart-button">
               <a class="addToCart" href="#"">加入購物車</a>
-              <a class="goToCheckout" href="checkout.html">直接購買</a> 
+              <a class="goToCheckout" href="#">直接購買</a> 
             </div>
           </div>
 
           <div class="item-12-container items-container">
             <img class="goods-item item-12" src="./pics/small_pics/goods/IMG_0806-min.JPG" alt="">
-            <h4>氣質感素色上衣</h4>
-            <p>$510 NTD</p>
+            <h4>無印素Tee+牛仔褲組合</h4>
+            <p>$888 NTD</p>
             <div class="cart-button">
               <a class="addToCart" href="#"">加入購物車</a>
-              <a class="goToCheckout" href="checkout.html">直接購買</a> 
+              <a class="goToCheckout" href="#">直接購買</a> 
             </div>
           </div>
 
           <div class="item-13-container items-container">
             <img class="goods-item item-13" src="./pics/small_pics/goods/IMG_0766-min.JPG" alt="">
-            <h4>氣質感素色上衣</h4>
-            <p>$510 NTD</p>
+            <h4>咖色保暖外套</h4>
+            <p>$1199 NTD</p>
             <div class="cart-button">
               <a class="addToCart" href="#"">加入購物車</a>
-              <a class="goToCheckout" href="checkout.html">直接購買</a> 
+              <a class="goToCheckout" href="#">直接購買</a> 
             </div>
           </div>
 
           <div class="item-14-container items-container">
             <img class="goods-item item-14" src="./pics/small_pics/goods/IMG_7836-min.JPG" alt="">
-            <h4>氣質感素色上衣</h4>
-            <p>$510 NTD</p>
+            <h4>典雅娃娃鞋款</h4>
+            <p>$699 NTD</p>
             <div class="cart-button">
               <a class="addToCart" href="#"">加入購物車</a>
-              <a class="goToCheckout" href="checkout.html">直接購買</a> 
+              <a class="goToCheckout" href="#">直接購買</a> 
             </div>
           </div>
 
           <div class="item-15-container items-container">
             <img class="goods-item item-15" src="./pics/small_pics/goods/IMG_0772-min.JPG" alt="">
-            <h4>氣質感素色上衣</h4>
-            <p>$510 NTD</p>
+            <h4>粉色可愛長裙</h4>
+            <p>$499 NTD</p>
             <div class="cart-button">
               <a class="addToCart" href="#"">加入購物車</a>
-              <a class="goToCheckout" href="checkout.html">直接購買</a> 
+              <a class="goToCheckout" href="#">直接購買</a> 
             </div>
           </div>
 
           <div class="item-16-container items-container">
             <img class="goods-item item-16" src="./pics/small_pics/goods/IMG_0760-min.JPG" alt="">
-            <h4>氣質感素色上衣</h4>
-            <p>$510 NTD</p>
+            <h4>無印素Tee</h4>
+            <p>$299 NTD</p>
             <div class="cart-button">
               <a class="addToCart" href="#"">加入購物車</a>
-              <a class="goToCheckout" href="checkout.html">直接購買</a> 
+              <a class="goToCheckout" href="#">直接購買</a> 
             </div>
           </div>
 
           <div class="item-17-container items-container">
-            <img class="goods-item item-17" src="./pics/small_pics/goods/IMG_0735-min.JPG" alt="">
-            <h4>氣質感素色上衣</h4>
-            <p>$510 NTD</p>
+            <img class="goods-item item-17" src="./pics/small_pics/goods/IMG_0739-min.JPG" alt="">
+            <h4>毛絨款保暖外套</h4>
+            <p>$999 NTD</p>
             <div class="cart-button">
               <a class="addToCart" href="#"">加入購物車</a>
-              <a class="goToCheckout" href="checkout.html">直接購買</a> 
+              <a class="goToCheckout" href="#">直接購買</a> 
             </div>
           </div>
 
           <div class="item-18-container items-container">
-            <img class="goods-item item-18" src="./pics/small_pics/goods/IMG_0759-min.JPG" alt="">
-            <h4>氣質感素色上衣</h4>
-            <p>$510 NTD</p>
+            <img class="goods-item item-18" src="./pics/small_pics/goods/IMG_9519-min.JPG" alt="">
+            <h4>氣質感素色洋裝</h4>
+            <p>$799 NTD</p>
             <div class="cart-button">
               <a class="addToCart" href="#"">加入購物車</a>
-              <a class="goToCheckout" href="checkout.html">直接購買</a> 
+              <a class="goToCheckout" href="#">直接購買</a> 
             </div>
           </div>
 
         </div>
       </main>
-      <footer></footer>
-      <!---------------------------- script ----------------------------------->
-      <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          fetch("./header.html")
-            .then((res) => res.text())
-            .then((data) => (document.querySelector("header").innerHTML = data));
-
-          fetch("./footer.html")
-            .then((res) => res.text())
-            .then((data) => (document.querySelector("footer").innerHTML = data));
-        });
-      </script>
     </div>
+
+    <footer></footer>
+<!---------------------------- script ----------------------------------->
+    <script src="./js/header.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/up_button.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+
+        fetch("./header.html")
+        .then((res) => res.text())
+        .then((data) => {
+            document.querySelector("header").innerHTML = data;
+            initHeader();
+        });
+          
+        fetch("./footer.html")
+          .then((res) => res.text())
+          .then((data) => (document.querySelector("footer").innerHTML = data));
+
+        fetch("./up_button.html")
+          .then((res) => res.text())
+          .then((data) => {
+          // 取得 body 元素
+          const body = document.querySelector('body'); 
+          
+          if (body) {
+            body.insertAdjacentHTML('beforeend', data); 
+            
+            initUpButton(); 
+            } else {
+              console.error('no_body');
+            }          
+          }
+      )});
+    </script>
   </body>
 </html>

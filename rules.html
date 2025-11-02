@@ -26,7 +26,8 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Noto+Sans+TC:wght@100..900&display=swap"
       rel="stylesheet"
     />
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
     <title>Rules</title>
   </head>
   <body>
@@ -150,7 +151,7 @@
       </div>
     </main>
     <!-- -----------------------------P2 Part-------------------------- -->
-    <main class="rules-page-2">
+    <!-- <main class="rules-page-2">
       <h1>注意事項</h1>
       <div class="rules-page-2-wrapper">
         <article class="rules-page-2-wrapper-l">
@@ -258,27 +259,27 @@
               </a>
             </li>
           </ul>
-          <!-- </div> -->
+        </div>
         </article>
         <article class="rules-page-2-wrapper-r">
           <div class="rules-text">
             <p class="food">
-              我們可以飲食唷。<br />
-              但小編提醒您，室內飲食禁止味道過於濃厚的食物且食物垃圾須自行帶走處理。
+              我們可以飲食唷<br />
+              但小編提醒您，室內飲食禁止味道過於濃厚的食物且食物垃圾須自行帶走處理
             </p>
             <p class="pet">
-              我們很歡迎帶寵物。<br />
-              但小編提醒您，再麻煩幫我們注意寶貝有沒有便溺或破壞的行為，不然會要求您幫我們恢復原狀或造價賠償喔。
+              我們很歡迎帶寵物<br />
+              但小編提醒您，再麻煩幫我們注意寶貝有沒有便溺或破壞的行為，不然會要求您幫我們恢復原狀或造價賠償喔
             </p>
             <p class="change">
-              異動檔期需於預約日5天前（不包含預約當天），超過需加收改檔費。<br />
-              非不可抗力因素需更改檔期一次為限，超過每次加收改檔費用。<br />
-              預約成立並保留檔期後，因爲該檔期時段已保留給您，恕不提供縮短租借時數喔。<br />
-              空間為全預約制，確認預約後小編就沒辦法提供給其他需要的客人，恕不提供取消退款的服務，請自行斟酌後預約喔。<br />
+              異動檔期需於預約日5天前（不包含預約當天），超過需加收改檔費<br />
+              非不可抗力因素需更改檔期一次為限，超過每次加收改檔費用<br />
+              預約成立並保留檔期後，因爲該檔期時段已保留給您，恕不提供縮短租借時數喔<br />
+              空間為全預約制，確認預約後小編就沒辦法提供給其他需要的客人，恕不提供取消退款的服務，請自行斟酌後預約喔<br />
             </p>
-            <p class="book">空間為全預約制，最低起租時間為2小時。</p>
-            <p class="space">使用後請保持場地整潔，損壞設備需照價賠償。</p>
-            <p class="number">單次拍攝限6人入場，超過人數需額外加價。</p>
+            <p class="book">空間為全預約制，最低起租時間為2小時</p>
+            <p class="space">使用後請保持場地整潔，損壞設備需照價賠償</p>
+            <p class="number">單次拍攝限6人入場，超過人數需額外加價</p>
             <div class="default-text">
               <img src="./pics/moment_logo.png" alt="" />
             </div>
@@ -288,20 +289,133 @@
       <div class="buttonorder-container">
         <a class="herop2button" href="./calendar.html">立即下訂</a>
       </div>
-    </main>
+    </main>-->
+<main class="rules-page-2">
+  <h1>注意事項</h1>
+  <div class="rules-page-2-wrapper">
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <h4>空間可否飲食</h4>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--color3)" class="bi bi-chevron-down" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </div>
+      <div class="accordion-content">
+        <p>我們可以飲食唷<br>但小編提醒您，室內飲食禁止味道過於濃厚的食物，且食物垃圾須自行帶走處理</p>
+      </div>
+    </div>
 
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <h4>能否攜帶寵物</h4>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--color3)" class="bi bi-chevron-down" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </div>
+      <div class="accordion-content">
+        <p>我們很歡迎帶寵物<br>但小編提醒您，再麻煩幫我們注意寶貝有沒有便溺或破壞的行為，不然會要求您幫我們恢復原狀或造價賠償喔</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <h4>預約異動政策</h4>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--color3)" class="bi bi-chevron-down" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </div>
+      <div class="accordion-content">
+        <p>異動檔期需於預約日5天前（不包含預約當天），超過需加收改檔費<br>非不可抗力因素需更改檔期一次為限，超過每次加收改檔費用<br>預約成立並保留檔期後，因爲該檔期時段已保留給您，恕不提供縮短租借時數喔<br>空間為全預約制，確認預約後小編就沒辦法提供給其他需要的客人，恕不提供取消退款的服務，請自行斟酌後預約喔</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <h4>起租時數</h4>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--color3)" class="bi bi-chevron-down" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </div>
+      <div class="accordion-content">
+        <p>空間為全預約制，最低起租時間為2小時</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <h4>場地維護</h4>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--color3)" class="bi bi-chevron-down" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </div>
+      <div class="accordion-content">
+        <p>使用後請保持場地整潔，損壞設備需照價賠償</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <h4>人數限制</h4>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--color3)" class="bi bi-chevron-down" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </div>
+      <div class="accordion-content">
+        <p>單次拍攝限6人入場，超過人數需額外加價</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="buttonorder-container">
+    <a class="herop2button" href="./calendar.html">立即下訂</a>
+  </div>
+</main>
     <footer></footer>
-  <!---------------------------- script ----------------------------------->
+<!---------------------------- script ----------------------------------->
+    <script src="./js/header.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/up_button.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        fetch("./header.html")
-          .then((res) => res.text())
-          .then((data) => (document.querySelector("header").innerHTML = data));
 
+        fetch("./header.html")
+        .then((res) => res.text())
+        .then((data) => {
+            document.querySelector("header").innerHTML = data;
+            initHeader();
+        });
+          
         fetch("./footer.html")
           .then((res) => res.text())
           .then((data) => (document.querySelector("footer").innerHTML = data));
+
+        fetch("./up_button.html")
+          .then((res) => res.text())
+          .then((data) => {
+          // 取得 body 元素
+          const body = document.querySelector('body'); 
+          
+          if (body) {
+            body.insertAdjacentHTML('beforeend', data); 
+            
+            initUpButton(); 
+            } else {
+              console.error('no_body');
+            }          
+          })
+
+        $(document).ready(function() {
+          $('.accordion-header').click(function() {
+            const $item = $(this).parent('.accordion-item');
+            
+            // 關閉其他已展開的項目
+            $('.accordion-item').not($item).removeClass('active');
+            
+            // 切換當前項目
+            $item.toggleClass('active');
+          });
+        });
       });
-    </script>  
+    </script>
   </body>
 </html>

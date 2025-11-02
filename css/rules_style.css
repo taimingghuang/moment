@@ -61,7 +61,7 @@ header:has(.header-logo:hover) .right-header li:nth-child(2) a {
 }
 
 .procedure {
-  height: 300px;
+  /* height: 300px; */
 }
 
 .procedure h3 {
@@ -96,259 +96,82 @@ header:has(.header-logo:hover) .right-header li:nth-child(2) a {
 }
 
 .procedure ul li h3:hover{
-  transform: scale(1.4);
-  transition: transform 0.3s ease
+  /* transform: scale(1.4); */
+  /* transition: transform 0.3s ease */
 }
 
 
 /*----------------------------P2 Part-------------------------------*/
 
-.rules-page-2-wrapper {
-  height: 600px;
-  display: flex;
-  justify-content: center;
-  padding: 16px 0;
-  align-items: center;
-}
-
-.rules-page-2-wrapper-l {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 300px;
-}
-
 .rules-page-2 h1 {
+  margin-top: 180px;
   font-weight: bold;
   font-size: 3em;
   color: var(--color2);
   line-height: 64px;
   text-align: center;
+  margin-bottom: 40px;
 }
 
-.rules-page-2-wrapper-l h4 {
-  font-weight: bold;
-  font-size: 1.25em;
-  color: var(--color2);
-  line-height: 32px;
-  width: 300px;
-  /* border-bottom: 1px solid var(--color5); */
-}
-
-.rules-page-2-wrapper-l ul {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.rules-page-2-wrapper-l li {
-  /* margin: 100px 0; */
-  /* padding-top: 50px; */
-}
-
-.rules-page-2-wrapper-l li:first-child {
-  margin-top: 0;
-}
-
-.rules-page-2-wrapper-l li a {
-  text-decoration: none;
-  display: block;
-}
-
-.rules-page-2-wrapper-r {
-  content: "";
-  background-color: var(--color6);
-  width: 550px;
-  height: 500px;
-  border-radius: 8px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-}
-
-.buttonorder {
-  display: flex;
-  justify-content: center;
-}
-
-main .buttonorder img {
-  width: 186px;
-  margin-bottom: 50px;
-}
-
-.rules-page-2-wrapper-r {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0 40px;
-  outline: 1px solid var(--color2);
-  outline-offset: -20px;
-}
-
-.rules-page-2-wrapper-r .rules-text .food,
-.rules-page-2-wrapper-r .rules-text .pet,
-.rules-page-2-wrapper-r .rules-text .book,
-.rules-page-2-wrapper-r .rules-text .space,
-.rules-page-2-wrapper-r .rules-text .number {
-  font-size: 1.5em;
-  color: var(--color2);
-  font-weight: bold;
-  line-height: 2em;
-}
-
-.rules-page-2-wrapper-r .rules-text .change {
-  font-size: 1.25em;
-  color: var(--color2);
-  font-weight: bold;
-  line-height: 2em;
-}
-
-.rules-page-2-wrapper-r .rules-text .default-text {
-  font-size: 2em;
-  color: var(--color2);
-  font-weight: bold;
-  line-height: 2.5em;
-}
-
-/* 預設全部隱藏 */
-.rules-text p {
-  display: none;
-}
-
-.rules-text .default-text {
-  display: block;
-}
-
-.rules-text .default-text img {
-  width: 120px;
-  display: block;
+.rules-page-2-wrapper {
+  max-width: 800px;
   margin: 0 auto;
+  padding: 0 20px 60px;
 }
 
-/* hover選單 */
-/* 當 hover 到第一個選項時，只顯示 food */
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(1) a:hover)
-  .food {
-  display: block;
+.accordion-item {
+  border-bottom: 2px solid var(--color5);
+  margin-bottom: 10px;
 }
 
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(1) a:hover)
-  .pet,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(1) a:hover)
-  .change,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(1) a:hover)
-  .default-text,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(1) a:hover)
-  .book,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(1) a:hover)
-  .space,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(1) a:hover)
-  .number {
-  display: none;
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-/* 當 hover 到第二個選項時，只顯示 pet */
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(2) a:hover)
-  .pet {
-  display: block;
+.accordion-header:hover {
+  background-color: var(--color6);
 }
 
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(2) a:hover)
-  .food,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(2) a:hover)
-  .change,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(2) a:hover)
-  .default-text,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(2) a:hover)
-  .book,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(2) a:hover)
-  .space,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(2) a:hover)
-  .number {
-  display: none;
+.accordion-header h4 {
+  font-weight: bold;
+  font-size: 1.3em;
+  color: var(--color2);
+  margin: 0;
 }
 
-/* 當 hover 到第三個選項時，只顯示 change */
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(3) a:hover)
-  .change {
-  display: block;
+.accordion-header svg {
+  transition: transform 0.3s;
+  flex-shrink: 0;
+  margin-left: 10px;
 }
 
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(3) a:hover)
-  .food,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(3) a:hover)
-  .pet,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(3) a:hover)
-  .default-text,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(3) a:hover)
-  .book,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(3) a:hover)
-  .space,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(3) a:hover)
-  .number {
-  display: none;
+.accordion-item.active .accordion-header svg {
+  transform: rotate(180deg);
 }
 
-/* 4 */
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(4) a:hover)
-  .book {
-  display: block;
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  background-color: var(--color6);
 }
 
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(4) a:hover)
-  .food,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(4) a:hover)
-  .pet,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(4) a:hover)
-  .default-text,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(4) a:hover)
-  .change,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(4) a:hover)
-  .space,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(4) a:hover)
-  .number {
-  display: none;
+.accordion-item.active .accordion-content {
+  max-height: 500px;
+  padding: 20px 15px;
 }
 
-/* 5 */
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(5) a:hover)
-  .space {
-  display: block;
-}
-
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(5) a:hover)
-  .food,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(5) a:hover)
-  .pet,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(5) a:hover)
-  .default-text,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(5) a:hover)
-  .book,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(5) a:hover)
-  .change,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(5) a:hover)
-  .number {
-  display: none;
-}
-
-/* 6 */
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(6) a:hover)
-  .number {
-  display: block;
-}
-
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(6) a:hover)
-  .food,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(6) a:hover)
-  .pet,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(6) a:hover)
-  .default-text,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(6) a:hover)
-  .book,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(6) a:hover)
-  .change,
-.rules-page-2-wrapper:has(.rules-page-2-wrapper-l ul li:nth-child(6) a:hover)
-  .change {
-  display: none;
+.accordion-content p {
+  font-size: 1.15em;
+  color: var(--color3);
+  line-height: 1.8em;
+  margin: 0;
+  font-weight: bold;
 }
 
 .herop2button {
@@ -364,17 +187,10 @@ main .buttonorder img {
   font-size: 1.1em;
   margin: 0 auto;
   margin-bottom: 60px;
+  transition: background-color 0.3s;
 }
 
-/*----------------------------Up button-------------------------------*/
-.up-button {
-  position: absolute;
-  right: 20px;
-  bottom: 15px;
-  position: fixed;
-  width: 40px;
+.herop2button:hover {
+  background-color: var(--color4);
 }
 
-.up-button a img {
-  width: 40px;
-}
