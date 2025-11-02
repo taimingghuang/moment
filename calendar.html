@@ -75,9 +75,12 @@
     <div class="button-pic">
       <a class="herop2button" href="#">立即下訂</a>
     </div>
-    <footer></footer>
+
+  </div>
+  <footer></footer>
 <!---------------------------- script ----------------------------------->
     <script src="./js/header.js"></script>
+    <script src="./js/index.js"></script>
     <script src="./js/up_button.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -106,20 +109,9 @@
             } else {
               console.error('no_body');
             }          
-          })
-
-        $(document).ready(function() {
-          $('.accordion-header').click(function() {
-            const $item = $(this).parent('.accordion-item');
-            
-            // 關閉其他已展開的項目
-            $('.accordion-item').not($item).removeClass('active');
-            
-            // 切換當前項目
-            $item.toggleClass('active');
-          });
-        });
-      });
+          }
+      )});
     </script>
+
   </body>
 </html>
