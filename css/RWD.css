@@ -999,28 +999,263 @@
 /* ====================== Studios Page  ======================*/
 /* 1100 */
 @media (max-width: 1100px) {
+  .studios-p1,
+  .studios-p2,
+  .studios-p3,
+  .studios-p4 {
+    gap: 32px;
+    padding: 16px 20px;
+  }
 
+  .sliderBoard {
+    max-width: 500px;
+    min-width: 350px;
+  }
+
+  .sliderBoardImage {
+    height: 650px;
+  }
+
+  .studios-right-part {
+    max-width: 450px;
+  }
+
+  .studios-right-part h2 {
+    font-size: 3.5em;
+    line-height: 56px;
+  }
+
+  .studios-right-part .info-1,
+  .studios-right-part .info-2 {
+    font-size: 0.95em;
+    max-width: 100%;
+  }
 }
 
+/* 920px */
+@media (max-width: 920px) {
+  .studios-p1,
+  .studios-p2,
+  .studios-p3,
+  .studios-p4 {
+    gap: 24px;
+  }
 
+  .studios-p1{
+    padding-top: 80px;
+    margin-bottom: 80px;
+  }
 
+  .sliderBoard {
+    max-width: 450px;
+    min-width: 320px;
+  }
 
-/* 820 */
+  .sliderBoardImage {
+    height: 550px;
+  }
+
+  .studios-right-part {
+    max-width: 360px;
+  }
+
+  .studios-right-part h2 {
+    font-size: 3em;
+    line-height: 48px;
+  }
+
+  .studios-right-part .info-1,
+  .studios-right-part .info-2 {
+    font-size: 0.9em;
+  }
+
+  .prevButton,
+  .nextButton {
+    width: 36px;
+    height: 36px;
+  }
+
+  .prevButton img,
+  .nextButton img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .dot-navigation {
+    top: 6px;
+  }
+}
+
 @media (max-width: 820px) {
+  .studios-wrapper {
+    padding-top: 60px;
+  }
 
+  .studios-p1,
+  .studios-p2,
+  .studios-p3,
+  .studios-p4 {
+    flex-direction: column;
+    gap: 32px;
+    padding: 16px 20px;
+    align-items: center;
+  }
+
+  .studios-left-part {
+    width: 100%;
+    max-width: 100%;
+    order: 2;
+    display: flex;
+    justify-content: center;
+  }
+
+  .sliderBoard {
+    width: 100%;
+    max-width: 600px;
+    min-width: 0;
+    margin: 0 8px;
+    overflow: hidden;
+  }
+
+  .sliderBoardImage {
+    /* height: 50px; */
+    outline: 1px solid var(--color1);
+    outline-offset: -10px;
+  }
+
+  .studios-right-part {
+    width: 100%;
+    max-width: 600px;
+    gap: 20px;
+    order: 3;
+  }
+
+  .dot-navigation {
+    position: static;
+    justify-content: center;
+    margin: 20px 0 16px 10px;
+    order: -1;
+  }
+
+
+  .dot {
+    width: 44px;
+    height: 44px;
+  }
+
+  .studios-right-part h2,
+  .studios-2-right-part h2,
+  .studios-3-right-part h2,
+  .studios-4-right-part h2 {
+    font-size: 4em;
+    line-height: 48px;
+  }
+
+  .studios-right-part .info-1,
+  .studios-right-part .info-2,
+  .studios-2-right-part .info-1,
+  .studios-2-right-part .info-2,
+  .studios-3-right-part .info-1,
+  .studios-3-right-part .info-2,
+  .studios-4-right-part .info-2,
+  .studios-p4 .info-1 {
+    width: 100%;
+    max-width: 100%;
+    font-size: 0.95em;
+  }
+
+  .studios-right-part .map-1-container,
+  .studios-right-part .map-2-container,
+  .studios-right-part .map-3-container,
+  .studios-right-part .map-4-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .studios-right-part .map-1,
+  .studios-right-part .map-2,
+  .studios-right-part .map-3,
+  .studios-right-part .map-4 {
+    width: 100%;
+    height: 240px;
+  }
+
+  .notice-panel-wrapper {
+    width: 90%;
+    right: 5%;
+  }
+
+  .notice-panel {
+    padding: 30px 20px;
+  }
+
+  .studios-right-part article {
+    margin-bottom: 20px;
+  }
+
+  .studios-right-part h5 {
+    align-self: center;
+    font-size: 1.3em;
+  }
+
+  .studios-right-part .h5-2 {
+    align-self: center;
+    margin-bottom: 40px;
+  }
+
+  section .herop2button {
+    align-self: center;
+  }
 }
 
+/* 600px */
+@media (max-width: 600px) {
+  .studios-p1,
+  .studios-p2,
+  .studios-p3,
+  .studios-p4 {
+    padding: 16px 16px;
+    gap: 28px;
+  }
 
+  .sliderBoardImage {
+    height: 450px;
+  }
 
+  .studios-right-part h2 {
+    font-size: 2.8em;
+  }
 
+  .studios-right-part .map-1,
+  .studios-right-part .map-2,
+  .studios-right-part .map-3,
+  .studios-right-part .map-4 {
+    height: 220px;
+  }
+}
 
-/* 440 */
 @media (max-width: 440px) {
+  .studios-wrapper {
+    padding-top: 60px;
+  }
 
-}
+  .studios-p1,
+  .studios-p2,
+  .studios-p3,
+  .studios-p4 {
+    padding: 16px 12px;
+    gap: 24px;
+  }
 
+  .dot {
+    width: 40px;
+    height: 40px;
+  }
 
-
+  .sliderBoardImage {
+    height: 360px;
+  }
+} 
 
 
 /* ====================== Portfolio Page  ======================*/
@@ -1754,13 +1989,11 @@
     gap: 20px;
   }
 
-  /* 隱藏原本的左右結構 */
   .rules-page-2-wrapper-l,
   .rules-page-2-wrapper-r {
     display: none;
   }
 
-  /* 新的卡片式佈局容器 */
   .rules-page-2-wrapper::after {
     content: '';
     display: block;

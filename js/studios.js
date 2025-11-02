@@ -1,114 +1,104 @@
+
 $(function () {
 
   let startStudio = 'studio1';
-  let currentTimer = null; // 準備一個計時器var，之後用來控制輪播自動播放
+  let currentTimer = null; // 全域計時器
+
 
   setTimeout(function(){
     const hash = window.location.hash;
     if (hash) {
-      const target = hash.substring(1); // "studio2"
+      const target = hash.substring(1);
       if ($(`#${target}`).length) {
         startStudio = target;
-      // 立即切換
+        // 立即切換
         $('.studio-content').removeClass('active');
         $('.dot').removeClass('active');
         $(`#${startStudio}`).addClass('active');
         $(`.dot[data-studio="${startStudio}"]`).addClass('active');
         setupSlider(startStudio);
 
-        // 平滑滾動
+        // scroll
         $('html, body').animate({
           scrollTop: $(`#${startStudio}`).offset().top - 100
         }, 600);
       }
     } else {
-      // 預設第一頁
       $(`#studio1`).addClass('active');
       $(`.dot[data-studio="studio1"]`).addClass('active');
       setupSlider('studio1');
     }
   }, 100);
 
-  // 圓點切換功能
+  // ============ 圓點切換功能 ============
   $('.dot').click(function () {
-
     let targetStudio = $(this).data('studio');
 
     // 清除舊的計時器
     if (currentTimer) {
       clearInterval(currentTimer);
+      currentTimer = null;
     }
 
-    // 1. 更新所有頁面的 active
+    // 更新所有頁面的 active
     $('.dot').removeClass('active');
     $(`.dot[data-studio="${targetStudio}"]`).addClass('active');
 
-    // 切換內容
+    // change content
     $('.studio-content').removeClass('active');
     $(`#${targetStudio}`).addClass('active');
 
-    // 初始化該攝影棚的輪播
+    // initialize 
     setupSlider(targetStudio);
-
-      
   });
 
-
-
-  // // === 預設啟動 studio1 ===
-  // setupSlider('studio1');
-
-  // 輪播初始化函數
+  // ============ 輪播初始化函數（支援 RWD）============
   function setupSlider(studioId) {
     let $studio = $(`#${studioId}`);
     let $sliderBoard = $studio.find('.sliderBoard');
     let $content = $studio.find('.content');
     let $prevBtn = $studio.find('.prevButton');
     let $nextBtn = $studio.find('.nextButton');
-
-    let divWidth = $sliderBoard.width();
+    
     let imgCount = $content.find('li').length;
-
-    // 設定寬度
-    $content.find('li').width(divWidth);
-    $content.width(divWidth * imgCount);
-    $content.css('left', '0'); // 重置位置
-
     let index = 0;
-
-    // 清除舊的事件綁定
+    
+    // 清除舊的計時器
+    if (currentTimer) {
+      clearInterval(currentTimer);
+      currentTimer = null;
+    }
+    
+    // update width (RWD use)
+    function updateWidths() {
+      let divWidth = $sliderBoard.width();
+      $content.find('li').width(divWidth);
+      $content.width(divWidth * imgCount);
+      $content.css('left', divWidth * index * -1);
+    }
+    
+    updateWidths();
+    
+    // 
+    let resizeTimer;
+    $(window).off('resize.slider').on('resize.slider', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(updateWidths, 100);
+    });
+    
+    //
     $prevBtn.off('click');
     $nextBtn.off('click');
-
-    // 左箭頭點擊
-    $prevBtn.click(function () {
-      if (currentTimer) clearInterval(currentTimer);
-
-      if (index > 0) {
-        index--;
-      } else {
-        index = imgCount - 1;
-      }
-      moveTo(index);
-
-      currentTimer = setInterval(moveToNext, 5000);
-    });
-
-    // 右箭頭點擊
-    $nextBtn.click(function () {
-      if (currentTimer) clearInterval(currentTimer);
-      moveToNext();
-      currentTimer = setInterval(moveToNext, 5000);
-    });
-
-    // 移動到指定位置
+    
+    // 
     function moveTo(targetIndex) {
+      let divWidth = $sliderBoard.width();
       $content.animate({
         left: divWidth * targetIndex * -1
       }, 500);
     }
-
-    // 移動到下一張
+    
+    // next one
     function moveToNext() {
       if (index < imgCount - 1) {
         index++;
@@ -117,62 +107,84 @@ $(function () {
       }
       moveTo(index);
     }
-
-    if (currentTimer) clearInterval(currentTimer);
+    
+    // 
+    $prevBtn.click(function () {
+      if (currentTimer) clearInterval(currentTimer);
+      
+      if (index > 0) {
+        index--;
+      } else {
+        index = imgCount - 1;
+      }
+      moveTo(index);
+      
+      currentTimer = setInterval(moveToNext, 5000);
+    });
+    
+    // 
+    $nextBtn.click(function () {
+      if (currentTimer) clearInterval(currentTimer);
+      moveToNext();
+      currentTimer = setInterval(moveToNext, 5000);
+    });
+    
+    // 
     currentTimer = setInterval(moveToNext, 5000);
   }
-});
 
-// ============ 注意事項彈窗功能 ============
-$(function(){
-  let wrapper = $(`.notice-panel-wrapper`)
-  let panel = $(`.notice-panel`)
-  let openButton = $(`.article-title a`)
-  let closeButton = $(`#closeButton`)
+  // ============ 注意事項 function ============
+  let wrapper = $('.notice-panel-wrapper');
+  let panel = $('.notice-panel');
+  let openButton = $('.article-title a');
+  let closeButton = $('#closeButton');
 
-  // open window
+  // open
   openButton.click(function(e){
     e.preventDefault();
     e.stopPropagation();
     openNotice();
   });
 
-  // close window
-  // 1. 點外部
+  // close click outside
   $(document).on('click', function(e){
     if (wrapper.hasClass('show')){
-      if (!$(e.target).closest('.notice-panel').length) {
-          closeNotice();
+      if (!$(e.target).closest('.notice-panel').length && 
+          !$(e.target).closest('.article-title a').length) {
+        closeNotice();
       }
     }
-  })
-  // 2. 
+  });
+
+  // close click
   closeButton.click(function(){
     closeNotice();
   });
 
-  // 3.
+  // close(ESC)
   $(document).keydown(function (e) {
     if (e.key === 'Escape' && wrapper.hasClass('show')) {
       closeNotice();
     }
   });  
 
-  // === 開啟函數 ===
+  // open
   function openNotice() {
     wrapper.addClass('show');
     setTimeout(function() {
       panel.css('transform', 'translateX(0)');
     }, 10);
   }
-  // === 關閉函數 ===
+
+  // close 
   function closeNotice() {
     panel.css('transform', 'translateX(100%)');
     setTimeout(function(){
       wrapper.removeClass('show');
     }, 300);
   }
-})
+
+});
 
 
 
