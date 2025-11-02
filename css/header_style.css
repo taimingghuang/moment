@@ -339,6 +339,7 @@ header a {
   font-size: 1.1em;
   z-index: 2;
   width: 100%;
+  font-weight: normal;
 }
 
 .cart-close-btn {

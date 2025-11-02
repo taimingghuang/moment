@@ -23,7 +23,7 @@ body {
   margin: 0 auto; /*置中*/
   padding-top: 80px;
   position: relative;
-  /* min-height: 100vh; */
+  min-height: 100vh;
 }
 
 .studios-left-part {
