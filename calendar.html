@@ -28,19 +28,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/datepicker.min.js"></script>
 
-    <title>Studios-3</title>
+    <title> Calendar </title>
   </head>
 
   <body>
     <header></header>
 
 
-    <div class="calendar-wrapper">
-
-<!-- ------------------------------Calendar Part-------------------------- -->
+  <div class="calendar-wrapper">
     <main>
       <h1>選擇日期時段</h1>
+      
       <div class="calendar-container">
+
         <div class="select-container">
           <label>想下訂哪間攝影棚？</label>
           <div class="select-box">
@@ -49,48 +49,68 @@
               <span class="selected-text">請選擇攝影棚</span>
               <div class="select-arrow-wrapper">
                 <span class="divider">|</span>
-                <span class="arrow"
-                  ><img src="./pics/mingcute_down-line.png" alt=""
-                /></span>
+                <span class="arrow">
+                  <img src="./pics/mingcute_down-line.png" alt="dropdown arrow" />
+                </span>
               </div>
             </label>
             <ul class="select-list">
-              <li><a href="#studioA">100th</a></li>
-              <li><a href="#studioB">103th</a></li>
-              <li><a href="#studioC">105th</a></li>
-              <li><a href="#studioD">Memoli</a></li>
+              <li><a href="#" data-studio="100th">100th</a></li>
+              <li><a href="#" data-studio="103th">103th</a></li>
+              <li><a href="#" data-studio="105th">105th</a></li>
+              <li><a href="#" data-studio="Memoli">Memoli</a></li>
             </ul>
           </div>
         </div>
+
         <div class="calendar-container-right">
-          <div id='calendar'></div>
-          <img class="calendar-pic" src="./pics/Frame 560.png" alt="" />
-          <div class="calendar-down">
-            <img src="./pics/time icon.png" alt="" />
-            <h4>請先選擇日期</h4>
+          <div class="calendar-box">
+            <div class="calendar-header">
+              <button id="prevMonth" aria-label="上個月">←</button>
+              <h2 id="monthYear">November 2025</h2>
+              <button id="nextMonth" aria-label="下個月">→</button>
+            </div>
+            
+            <div class="weekdays">
+              <div class="weekday">Mo</div>
+              <div class="weekday">Tu</div>
+              <div class="weekday">We</div>
+              <div class="weekday">Th</div>
+              <div class="weekday">Fr</div>
+              <div class="weekday">Sa</div>
+              <div class="weekday">Su</div>
+            </div>
+            
+            <div class="days" id="calendarDays"></div>
+          </div>
+
+          <div class="time-selection-area">
+            <div class="calendar-down">
+              <img src="./pics/time icon.png" alt="時間圖標" />
+              <h4 id="selectedDateText">請先選擇日期</h4>
+            </div>
+            <div class="time-slots hidden" id="timeSlots"></div>
           </div>
         </div>
       </div>
     </main>
     <div class="button-pic">
-      <a class="herop2button" href="#">立即下訂</a>
+        <a class="herop2button hidden" href="#" id="confirmBooking">立即下訂</a>
     </div>
-
   </div>
+
   <footer></footer>
 <!---------------------------- script ----------------------------------->
     <script src="./js/header.js"></script>
-    <script src="./js/index.js"></script>
     <script src="./js/up_button.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-
         fetch("./header.html")
-        .then((res) => res.text())
-        .then((data) => {
+          .then((res) => res.text())
+          .then((data) => {
             document.querySelector("header").innerHTML = data;
-            initHeader();
-        });
+            if (typeof initHeader === 'function') initHeader();
+          });
           
         fetch("./footer.html")
           .then((res) => res.text())
@@ -99,18 +119,148 @@
         fetch("./up_button.html")
           .then((res) => res.text())
           .then((data) => {
-          // 取得 body 元素
-          const body = document.querySelector('body'); 
+            const body = document.querySelector('body'); 
+            if (body) {
+              body.insertAdjacentHTML('beforeend', data); 
+              if (typeof initUpButton === 'function') initUpButton(); 
+            }
+          });
+      });
+
+      // ============ Calendar ============
+      $(document).ready(function() {
+        let currentDate = new Date(2025, 10, 3);
+        let selectedDate = null;
+        let selectedTime = null;
+        let selectedStudio = null;
+
+        const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
+                          'July', 'August', 'September', 'October', 'November', 'December'];
+        
+        const timeSlots = [
+          '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', 
+          '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', 
+          '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '00:00'
+        ];
+
+        $('.select-list a').click(function(e) {
+          e.preventDefault();
+          selectedStudio = $(this).data('studio');
+          $('.selected-text').text(selectedStudio);
+          $('#select-toggle').prop('checked', false);
+        });
+
+        function renderCalendar() {
+          const year = currentDate.getFullYear();
+          const month = currentDate.getMonth();
           
-          if (body) {
-            body.insertAdjacentHTML('beforeend', data); 
-            
-            initUpButton(); 
-            } else {
-              console.error('no_body');
-            }          
+          $('#monthYear').text(monthNames[month] + ' ' + year);
+          
+          const firstDay = new Date(year, month, 1).getDay();
+          const daysInMonth = new Date(year, month + 1, 0).getDate();
+          const daysInPrevMonth = new Date(year, month, 0).getDate();
+          
+          let html = '';
+          const adjustedFirstDay = firstDay === 0 ? 6 : firstDay - 1;
+          
+          // 上個月的日期
+          for (let i = adjustedFirstDay - 1; i >= 0; i--) {
+            html += '<button class="day other-month">' + (daysInPrevMonth - i) + '</button>';
           }
-      )});
+          
+          // 本月日期
+          for (let i = 1; i <= daysInMonth; i++) {
+            const isSelected = selectedDate && selectedDate.day === i && 
+                             selectedDate.month === month && selectedDate.year === year;
+            html += '<button class="day current-month' + (isSelected ? ' selected' : '') + 
+                    '" data-day="' + i + '">' + i + '</button>';
+          }
+          
+          const totalCells = adjustedFirstDay + daysInMonth;
+          const remainingCells = totalCells <= 35 ? 35 - totalCells : 42 - totalCells;
+          for (let i = 1; i <= remainingCells; i++) {
+            html += '<button class="day other-month">' + i + '</button>';
+          }
+          
+          $('#calendarDays').html(html);
+        }
+
+        function renderTimeSlots() {
+          let html = '';
+          timeSlots.forEach(time => {
+            const isSelected = selectedTime === time;
+            html += '<button class="time-slot' + (isSelected ? ' selected' : '') + 
+                    '" data-time="' + time + '">' + time + '</button>';
+          });
+          $('#timeSlots').html(html);
+        }
+
+        // last month
+        $('#prevMonth').click(function() {
+          currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1);
+          renderCalendar();
+        });
+
+        // next month
+        $('#nextMonth').click(function() {
+          currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1);
+          renderCalendar();
+        });
+
+        // date choose
+        $(document).on('click', '.day.current-month', function() {
+          const day = parseInt($(this).data('day'));
+          selectedDate = {
+            day: day,
+            month: currentDate.getMonth(),
+            year: currentDate.getFullYear()
+          };
+          selectedTime = null;
+          
+          $('.day').removeClass('selected');
+          $(this).addClass('selected');
+          
+          $('#timeSlots').removeClass('hidden');
+          $('#selectedDateText').text(
+            selectedDate.year + '年' + (selectedDate.month + 1) + '月' + day + '日'
+          );
+          $('#confirmBooking').addClass('hidden');
+          
+          renderTimeSlots();
+        });
+
+        // time
+        $(document).on('click', '.time-slot', function() {
+          selectedTime = $(this).data('time');
+          $('.time-slot').removeClass('selected');
+          $(this).addClass('selected');
+          $('#confirmBooking').removeClass('hidden');
+        });
+
+        // conform
+        $('#confirmBooking').click(function(e) {
+          e.preventDefault();
+          
+          if (!selectedStudio) {
+            alert('請先選擇攝影棚！');
+            return;
+          }
+          
+          if (selectedDate && selectedTime) {
+            const bookingInfo = 
+              '攝影棚：' + selectedStudio + '\n' +
+              '日期：' + selectedDate.year + '年' + (selectedDate.month + 1) + '月' + 
+              selectedDate.day + '日\n' +
+              '時段：' + selectedTime;
+            
+            alert('已收到您的預約！\n\n' + bookingInfo);
+            
+          }
+        });
+
+        // initialization 
+        renderCalendar();
+      });
     </script>
 
   </body>
