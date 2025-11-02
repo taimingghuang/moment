@@ -138,9 +138,10 @@
     width: auto; 
     margin: 0;
     display: block;
-    padding-top: 8px;
-    scale: 0.7;
+    padding-top: 14px;
+    scale: 0.65;
   }
+
   .menu ul{
     right: 0; 
     left: auto;
@@ -183,8 +184,8 @@
   }
 
   .header-fixed .hamburgerWrapper{
-    scale: 0.8;
-    padding-top: 6px;
+    scale: 0.65;
+    padding-top: 16px;
   }
 }
 
@@ -213,12 +214,11 @@
 
   .header-fixed .hamburgerWrapper{
     scale: 0.65;
-    padding-top: 4px;
+    padding-top: 18px;
   }
 
   .menu ul{
     width: 800px;
-    /* max-width: 95vw; */
   }
 
 }
