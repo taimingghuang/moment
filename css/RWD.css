@@ -667,6 +667,10 @@
     transform: translateX(-55%);
   }
   }
+
+  .wrapperp4 {
+    margin-bottom: 300px;
+  }
 }
 
 
@@ -680,7 +684,6 @@
 
   .wrapperp4{
     padding-top: 172px;
-    margin-bottom: 200px;
   }
 
   .wrapperp4 h3 {
