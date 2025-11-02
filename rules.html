@@ -408,10 +408,9 @@
           $('.accordion-header').click(function() {
             const $item = $(this).parent('.accordion-item');
             
-            // 關閉其他已展開的項目
+            
             $('.accordion-item').not($item).removeClass('active');
             
-            // 切換當前項目
             $item.toggleClass('active');
           });
         });

@@ -195,7 +195,7 @@ function initReviewsLightbox() {
     touchEndX = e.changedTouches[0].screenX;
     handleSwipe();
   });
-  
+
   function handleSwipe() {
     const swipeThreshold = 50;
     if (touchEndX < touchStartX - swipeThreshold) {
@@ -204,7 +204,7 @@ function initReviewsLightbox() {
     if (touchEndX > touchStartX + swipeThreshold) {
       showPrev(); // right
   }
-  
+}
   
   bindClickEvents();
   
@@ -351,4 +351,4 @@ function initReviewsHeaderAnimation() {
     header.style.opacity = '1';
     header.style.transform = 'translateY(0)';
   }, 200);
-}
+  }
