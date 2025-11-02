@@ -433,6 +433,13 @@ h1 {
   display: block;
 }
 
+.calendar-wrapper .herop2button:link,
+.calendar-wrapper .herop2button:visited,
+.calendar-wrapper .herop2button:active {
+  color: var(--color1) !important;
+  text-decoration: none !important;
+}
+
 /* ==================== Responsive Design ==================== */
 @media (max-width: 1024px) {
   .calendar-container {
@@ -470,7 +477,7 @@ h1 {
   
   h1 {
     font-size: 2.5em;
-    padding: 40px 0 30px;
+    padding: 120px 0 30px;
   }
   
   .time-slots {
@@ -513,11 +520,15 @@ h1 {
     width: 100%;
     max-width: 300px;
   }
+
+   h1 {
+    padding: 140px 0 30px;
+  }
 }
 
 @media (max-width: 440px) {
   .calendar-container {
-    padding: 40px 12px 0;
+    padding: 20px 12px 0;
   }
   
   .select-container label:first-child {
@@ -529,3 +540,5 @@ h1 {
     padding: 12px 6px;
   }
 }
+
+
