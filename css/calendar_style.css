@@ -63,6 +63,7 @@ main {
   position: relative;
   padding-bottom: 40px; 
   isolation: isolate; 
+  /* position-try: ; */
 }
 
 main::before {
